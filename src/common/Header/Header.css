@@ -1,0 +1,19 @@
+.headerStyle {
+    height: 10vh;
+}
+
+.leftHeader{
+    margin-left: 1em;
+    height: 10vh;
+    width: 15vw;
+    background: url('../../img/logo.png') no-repeat;
+    background-size: 3.5em;
+    cursor: pointer;
+}
+
+@media screen and (min-width:1200px) {
+    .leftHeader{
+        width: 5vw;
+        background-size: 4em;
+    }
+}

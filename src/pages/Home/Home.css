@@ -1,0 +1,106 @@
+.homePicture {
+    height: 60vh;
+    background: url('../../img/home_picture.jpg') no-repeat;
+    background-size: 40em;
+    background-position-x: center;
+}
+
+.bottomSection {
+    display: flex;
+    justify-content: center;
+}
+
+.attractions {
+    height: 64vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.allAttractions {
+    height: 64vh;
+    width: 100vw;
+    background: url('../../img/attractions.jpg') no-repeat;
+    background-size: contain;
+    background-position-x: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.discoverAllAttractions {
+    height: 3em;
+    width: 10em;
+    margin-bottom: 8em;
+    background-color: white;
+    border-radius: .5em;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    color: var(--blue);
+    font-size: 1.2em;
+    font-weight: bold;
+    border: .15em solid var(--blue);
+    cursor: pointer;
+}
+
+.bookTicket {
+    height: 3em;
+    width: 10em;
+    background-color: var(--blue);
+    border: .15em solid white;
+    border-radius: .5em;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -1.5em;
+    cursor: pointer;
+}
+
+/* Laptop Query */
+@media screen and (min-width:1200px) {
+    .topSection {
+        height: 80vh;
+    }
+
+    .homePicture {
+        height: 80vh;
+        background-size: cover;
+    }
+
+    .attractions {
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+    }
+
+    .allAttractions {
+        height: 90vh;
+        width: 90vw;
+        margin-top: 1.5em;
+        background: url('../../img/attractions_laptop.jpg') no-repeat;
+        background-position-x: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .discoverAllAttractions{
+        height: 3.5em;
+        width: 11em;
+        font-size: 1.5em;
+        margin-bottom: 10em;
+    }
+
+    .bookTicket {
+        height: 3.5em;
+        width: 11em;
+        font-size: 1.5em;
+        margin-top: -3em;
+    }
+}

@@ -1,0 +1,41 @@
+.footerStyle {
+    height: 10vh;
+}
+
+.leftFooter {
+    height: 10vh;
+    background: url('../../img/logo.png') no-repeat;
+    background-position-x: center;
+    background-size: 3.5em;
+    margin-top: .5em;
+    cursor: pointer;
+}
+
+.rightFooter{
+    margin-top: .1em;
+    padding-bottom: .5em;
+    text-align: center;
+}
+
+@media screen and (min-width:1200px) {
+    .footerStyle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 1em;
+    }
+
+    .leftFooter {
+        margin-left: 1em;
+        height: 10vh;
+        width: 5vw;
+        background: url('../../img/logo.png') no-repeat;
+        background-size: 3.5em;
+        cursor: pointer;
+    }
+
+    .rightFooter{
+        margin-right: 1em;
+        margin-top: 0;
+    }
+}

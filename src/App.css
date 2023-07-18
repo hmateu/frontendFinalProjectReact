@@ -2,5 +2,18 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  color: black;
+}
+
+:root{
+  --blue: #0000ff;
+  --lightblue: #9ed2ec;
+  --yellow: #fff000;
+  --green: #00ff00;
+  --red: #ff0000;
+  --lightred: #f38888;
+}
+
+/* Generic page style */
+.pageStyle {
+  min-height: 100vh;
 }
