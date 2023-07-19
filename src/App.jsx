@@ -1,7 +1,7 @@
 import './App.css';
-import { Footer } from './common/Footer/Footer';
 import { Header } from './common/Header/Header';
 import { Body } from './pages/Body/Body';
+import { Footer } from './common/Footer/Footer';
 
 function App() {
 
@@ -9,10 +9,9 @@ function App() {
     <>
       <Header />
       <Body />
-      {/* <Home /> */}
       <Footer />
     </>
-  )
+  );
 }
 
 export default App;

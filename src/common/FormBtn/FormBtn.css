@@ -1,0 +1,30 @@
+.formBtnStyle {
+    background-color: var(--blue);
+    color: white;
+    height: 2.5em;
+    width: 10em;
+    font-weight: bold;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50em;
+    letter-spacing: .1em;
+    cursor: pointer;
+    transition: .15s;
+    align-self: center;
+    margin-top: 1em;
+}
+
+.formBtnStyle:hover {
+    background-color: var(--darkblue);
+    transition: .15s;
+}
+
+/* Laptop Query */
+@media screen and (min-width:1200px) {
+    .formBtnStyle {
+        height: 3em;
+        width: 19.2em;
+    }
+}

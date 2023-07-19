@@ -2,7 +2,7 @@
     height: 10vh;
 }
 
-.leftHeader{
+.leftHeader {
     margin-left: 1em;
     height: 10vh;
     width: 15vw;
@@ -11,8 +11,9 @@
     cursor: pointer;
 }
 
+/* Laptop Query */
 @media screen and (min-width:1200px) {
-    .leftHeader{
+    .leftHeader {
         width: 5vw;
         background-size: 4em;
     }

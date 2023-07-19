@@ -3,7 +3,7 @@ import "./Home.css"
 
 export const Home = () => {
     return (
-        <div className="pageStyle">
+        <>
             <div className="topSection">
                 <div className="homePicture"></div>
             </div>
@@ -19,6 +19,6 @@ export const Home = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }

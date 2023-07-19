@@ -1,0 +1,14 @@
+.inputFieldStyle {
+    height: 2em;
+    width: 15em;
+    border-radius: .5em;
+    padding-left: 1em;
+}
+
+/* Laptop Query */
+@media screen and (min-width:1200px) {
+    .inputFieldStyle {
+        height: 2.5em;
+        width: 20em;
+    }
+}
