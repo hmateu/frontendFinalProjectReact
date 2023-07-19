@@ -43,6 +43,12 @@
     font-weight: bold;
     border: .15em solid var(--blue);
     cursor: pointer;
+    transition: .15s;
+}
+
+.discoverAllAttractions:hover {
+    background-color: rgb(239, 232, 232);
+    transition: .15s;
 }
 
 .bookTicket {
@@ -59,6 +65,12 @@
     align-items: center;
     margin-top: -1.5em;
     cursor: pointer;
+    transition: .15s;
+}
+
+.bookTicket:hover {
+    transition: .15s;
+    background-color: var(--darkblue);
 }
 
 /* Laptop Query */
