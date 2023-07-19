@@ -27,6 +27,7 @@
   letter-spacing: .2em;
   text-align: center;
   margin-bottom: 1em;
+  width: 11em;
 }
 
 /* Forms */
@@ -35,7 +36,8 @@
   flex-direction: column;
   row-gap: 1em;
   padding: 1em;
-  margin-top: 3em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .dataForm {
@@ -46,12 +48,17 @@
 .textForm {
   font-weight: bold;
   align-self: center;
+  width: 6em;
 }
 
 /* Laptop Query */
 @media screen and (min-width:1200px) {
   .pageStyle {
     min-height: 78vh;
+  }
+
+  .viewTitle {
+    width: 14em;
   }
 
   .formStyle {
@@ -61,5 +68,6 @@
     row-gap: 2em;
     padding: 4em 2em;
     margin-top: 2em;
+    margin-bottom: 3em;
   }
 }

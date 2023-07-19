@@ -12,10 +12,10 @@ export const Login = () => {
                 </div>
                 <div className="dataForm">
                     <div className="textForm">
-                        Usuario:
+                        Email:
                     </div>
                     <InputField
-                        type={"text"}
+                        type={"email"}
                         name={"email"}
                         classDesign={"inputFieldStyle"}
                         placeholder={"Email ..."}
