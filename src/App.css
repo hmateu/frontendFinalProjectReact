@@ -1,7 +1,13 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined");
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body:has(.hamburgerContainer.opened){
+  overflow: hidden;
 }
 
 :root {
@@ -34,6 +40,7 @@
 .formStyle {
   display: flex;
   flex-direction: column;
+  align-items: center;
   row-gap: 1em;
   padding: 1em;
   margin-top: 1em;

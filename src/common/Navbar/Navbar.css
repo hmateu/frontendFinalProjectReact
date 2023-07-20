@@ -1,0 +1,109 @@
+button {
+    display: flex;
+    border: none;
+    background-color: transparent;
+}
+
+ul {
+    display: none;
+    list-style-type: none;
+}
+
+ul li{
+    cursor: pointer;
+    border-radius: .5em;
+    transition: .15s;
+}
+
+.loginRegister{
+    background-color: var(--blue);
+    color: white;
+    transition: .15s;
+}
+
+.loginRegister:hover{
+    background-color: var(--darkblue);
+    transition: .15s;
+}
+
+.hamburgerContainer{
+    display: flex;
+    flex-direction: column;
+    padding-left: 4em;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    z-index: -1;
+    visibility: hidden;
+    font-size: 1.3em;
+}
+
+.navMenu button .burgerIcon{
+    margin-right: .2em;
+    font-size: 3em;
+}
+
+.hamburgerContainer button{
+    height: 10vh;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: .5em;
+}
+
+.hamburgerContainer button .cross{
+    font-size: 3em;
+}
+
+.hamburgerContainer.opened{
+    z-index: 3;
+    visibility: visible;
+}
+
+.hamburgerContainer ul{
+    display: flex;
+    flex-direction: column;
+    row-gap: .5em;
+}
+
+.hamburgerContainer ul li{
+    width: 6em;
+    height: 2em;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: .5em;
+}
+
+/* Laptop Query */
+@media screen and (min-width:1200px) {
+    button {
+        display: none;
+    }
+
+    ul {
+        display: flex;
+    }
+
+    .hamburgerContainer{
+        display: none;
+    }
+
+    .navMenu ul{
+        column-gap: 1em;
+    }
+    
+    .navMenu ul li{
+        font-size: 1.5em;
+        height: 1.5em;
+        width: 5em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

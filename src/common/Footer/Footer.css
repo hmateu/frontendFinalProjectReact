@@ -1,10 +1,12 @@
 .footerStyle {
     height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .leftFooter {
     height: 10vh;
-    background: url('../../img/logo.png') no-repeat;
     background-position-x: center;
     background-size: 3.5em;
     margin-top: .5em;
@@ -21,17 +23,13 @@
 @media screen and (min-width:1200px) {
     .footerStyle {
         display: flex;
+        flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        padding-top: 1em;
     }
 
     .leftFooter {
         margin-left: 1em;
-        height: 10vh;
-        width: 5vw;
-        background: url('../../img/logo.png') no-repeat;
-        background-size: 3.5em;
         cursor: pointer;
     }
 

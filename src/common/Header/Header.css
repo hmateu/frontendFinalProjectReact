@@ -1,20 +1,38 @@
 .headerStyle {
     height: 10vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.rightHeader {
+    display: flex;
+    align-items: center;
 }
 
 .leftHeader {
-    margin-left: 1em;
-    height: 10vh;
-    width: 15vw;
-    background: url('../../img/logo.png') no-repeat;
     background-size: 3.5em;
     cursor: pointer;
+}
+
+.leftHeader img{
+    margin-left: .5em;
 }
 
 /* Laptop Query */
 @media screen and (min-width:1200px) {
     .leftHeader {
-        width: 5vw;
+        min-width: 8%;
+        max-width: 8%;
         background-size: 4em;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    .rightHeader{
+        min-width: calc(92% - 8em);
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 0 4em;
     }
 }
