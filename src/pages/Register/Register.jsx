@@ -1,13 +1,19 @@
 import React from "react";
 import { InputField } from "../../common/inputField/inputField";
 import { FormBtn } from "../../common/FormBtn/FormBtn";
+import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
+    const navigate = useNavigate();
+    
     return (
         <div className="pageStyle">
             <div className="formStyle">
                 <div className="viewTitle">
                     ¡Nos alegramos de conocerte!
+                </div>
+                <div className="askAccount">
+                    Si ya tienes cuenta, <span className="link" onClick={() => navigate('/login')}>inicia sesión aquí</span>
                 </div>
                 <div className="dataForm">
                     <div className="textForm">
@@ -109,7 +115,7 @@ export const Register = () => {
                     />
                 </div>
                 <FormBtn
-                    name={"Regístrate"}
+                    name={"Registrarme"}
                     pathClick={() => { }}
                 />
             </div>

@@ -51,6 +51,16 @@
   width: 6em;
 }
 
+.link {
+  color: var(--blue);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: var(--darkblue);
+}
+
 /* Laptop Query */
 @media screen and (min-width:1200px) {
   .pageStyle {
@@ -61,6 +71,7 @@
     width: 14em;
   }
 
+  /* Forms */
   .formStyle {
     box-shadow: .375em .375em .375em -.313em,
       -.375em -.375em .375em -.313em;
@@ -69,5 +80,10 @@
     padding: 4em 2em;
     margin-top: 2em;
     margin-bottom: 3em;
+  }
+
+  .askAccount,
+  .textForm {
+    font-size: 1.2em;
   }
 }
