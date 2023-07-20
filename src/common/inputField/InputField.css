@@ -5,10 +5,37 @@
     padding-left: 1em;
 }
 
+.errorInputFieldStyle {
+    color: red;
+    border: .25em solid red;
+    font-weight: bold;
+}
+
+.errorInputFieldStyle::placeholder {
+    font-weight: normal;
+    color: red;
+}
+
+.errorText {
+    margin-top: -.5em;
+    margin-bottom: .5em;
+    color: red;
+    align-self: center;
+    font-weight: bold;
+}
+
 /* Laptop Query */
 @media screen and (min-width:1200px) {
     .inputFieldStyle {
         height: 2.5em;
         width: 20em;
+    }
+
+    .inputFieldStyle::placeholder,
+    .errorInputFieldStyle::placeholder,
+    .errorText {
+        font-size: 1.2em;
+        margin-top: -1.1em;
+        margin-bottom: 0em;
     }
 }

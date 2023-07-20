@@ -3,13 +3,19 @@ import { InputField } from "../../common/inputField/inputField";
 import { FormBtn } from "../../common/FormBtn/FormBtn";
 
 import { useNavigate } from "react-router-dom";
+import { checkForm } from "../../utils/validateForm";
 
 export const Login = () => {
     const navigate = useNavigate();
 
     const [credentials, setCredentials] = useState({
-        email:"",
-        password:""
+        email: "",
+        password: ""
+    });
+
+    const [credentialsError, setCredentialsError] = useState({
+        emailError: "",
+        passwordError: ""
     });
 
     const inputHandler = (e) => {
@@ -19,9 +25,16 @@ export const Login = () => {
         }));
     }
 
+    const inputCheck = (e) => {
+        let errorMessage = checkForm(e.target.name, e.target.value);
+        setCredentialsError((prevState) => ({
+            ...prevState,
+            [e.target.name + "Error"]: errorMessage
+        }));
+    }
+
     return (
         <div className="pageStyle">
-        {/* {<pre>{JSON.stringify(credentials, null, 2)}</pre>} */}
             <div className="formStyle">
                 <div className="viewTitle">
                     ¡Te damos la bienvenida!
@@ -36,11 +49,17 @@ export const Login = () => {
                     <InputField
                         type={"email"}
                         name={"email"}
-                        classDesign={"inputFieldStyle"}
+                        classDesign={
+                            credentialsError.emailError === ""
+                                ? "inputFieldStyle"
+                                : "inputFieldStyle errorInputFieldStyle"
+                        }
                         placeholder={"Email ..."}
                         handlerFunction={inputHandler}
+                        onBlurFunction={inputCheck}
                     />
                 </div>
+                <div className="errorText">{credentialsError.emailError}</div>
                 <div className="dataForm">
                     <div className="textForm">
                         Contraseña:
@@ -48,11 +67,17 @@ export const Login = () => {
                     <InputField
                         type={"password"}
                         name={"password"}
-                        classDesign={"inputFieldStyle"}
+                        classDesign={
+                            credentialsError.passwordError === ""
+                                ? "inputFieldStyle"
+                                : "inputFieldStyle errorInputFieldStyle"
+                        }
                         placeholder={"Contraseña ..."}
                         handlerFunction={inputHandler}
+                        onBlurFunction={inputCheck}
                     />
                 </div>
+                <div className="errorText">{credentialsError.passwordError}</div>
                 <FormBtn
                     name={"Iniciar sesión"}
                     pathClick={() => { }}

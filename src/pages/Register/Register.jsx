@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { InputField } from "../../common/inputField/inputField";
 import { FormBtn } from "../../common/FormBtn/FormBtn";
 import { useNavigate } from "react-router-dom";
+import { checkForm } from "../../utils/validateForm";
 
 export const Register = () => {
     const navigate = useNavigate();
@@ -12,10 +13,20 @@ export const Register = () => {
         dni: "",
         age: "",
         pc: "",
-        mobile:"",
+        mobile: "",
         email: "",
-        password: "",
-        repeatPassword:""
+        password: ""
+    });
+
+    const [credentialsError, setCredentialsError] = useState({
+        nameError: "",
+        surnameError: "",
+        dniError: "",
+        ageError: "",
+        pcError: "",
+        mobileError: "",
+        emailError: "",
+        passwordError: ""
     });
 
     const inputHandler = (e) => {
@@ -24,10 +35,17 @@ export const Register = () => {
             [e.target.name]: e.target.value
         }));
     }
-    
+
+    const inputCheck = (e) => {
+        let errorMessage = checkForm(e.target.name, e.target.value)
+        setCredentialsError((prevState) => ({
+            ...prevState,
+            [e.target.name + "Error"]: errorMessage
+        }));
+    }
+
     return (
         <div className="pageStyle">
-        {/* {<pre>{JSON.stringify(credentials, null, 2)}</pre>} */}
             <div className="formStyle">
                 <div className="viewTitle">
                     ¡Nos alegramos de conocerte!
@@ -42,11 +60,17 @@ export const Register = () => {
                     <InputField
                         type={"text"}
                         name={"name"}
-                        classDesign={"inputFieldStyle"}
+                        classDesign={
+                            credentialsError.nameError === ""
+                                ? "inputFieldStyle"
+                                : "inputFieldStyle errorInputFieldStyle"
+                        }
                         placeholder={"Nombre ..."}
                         handlerFunction={inputHandler}
+                        onBlurFunction={inputCheck}
                     />
                 </div>
+                <div className="errorText">{credentialsError.nameError}</div>
                 <div className="dataForm">
                     <div className="textForm">
                         Apellidos:
@@ -54,11 +78,17 @@ export const Register = () => {
                     <InputField
                         type={"text"}
                         name={"surname"}
-                        classDesign={"inputFieldStyle"}
+                        classDesign={
+                            credentialsError.surnameError === ""
+                                ? "inputFieldStyle"
+                                : "inputFieldStyle errorInputFieldStyle"
+                        }
                         placeholder={"Apellidos ..."}
                         handlerFunction={inputHandler}
+                        onBlurFunction={inputCheck}
                     />
                 </div>
+                <div className="errorText">{credentialsError.surnameError}</div>
                 <div className="dataForm">
                     <div className="textForm">
                         DNI:
@@ -66,11 +96,17 @@ export const Register = () => {
                     <InputField
                         type={"text"}
                         name={"dni"}
-                        classDesign={"inputFieldStyle"}
+                        classDesign={
+                            credentialsError.dniError === ""
+                                ? "inputFieldStyle"
+                                : "inputFieldStyle errorInputFieldStyle"
+                        }
                         placeholder={"DNI ..."}
                         handlerFunction={inputHandler}
+                        onBlurFunction={inputCheck}
                     />
                 </div>
+                <div className="errorText">{credentialsError.dniError}</div>
                 <div className="dataForm">
                     <div className="textForm">
                         Edad:
@@ -78,11 +114,17 @@ export const Register = () => {
                     <InputField
                         type={"text"}
                         name={"age"}
-                        classDesign={"inputFieldStyle"}
+                        classDesign={
+                            credentialsError.ageError === ""
+                                ? "inputFieldStyle"
+                                : "inputFieldStyle errorInputFieldStyle"
+                        }
                         placeholder={"Edad ..."}
                         handlerFunction={inputHandler}
+                        onBlurFunction={inputCheck}
                     />
                 </div>
+                <div className="errorText">{credentialsError.ageError}</div>
                 <div className="dataForm">
                     <div className="textForm">
                         Código postal:
@@ -90,11 +132,17 @@ export const Register = () => {
                     <InputField
                         type={"text"}
                         name={"pc"}
-                        classDesign={"inputFieldStyle"}
+                        classDesign={
+                            credentialsError.pcError === ""
+                                ? "inputFieldStyle"
+                                : "inputFieldStyle errorInputFieldStyle"
+                        }
                         placeholder={"Código postal ..."}
                         handlerFunction={inputHandler}
+                        onBlurFunction={inputCheck}
                     />
                 </div>
+                <div className="errorText">{credentialsError.pcError}</div>
                 <div className="dataForm">
                     <div className="textForm">
                         Móvil:
@@ -102,11 +150,17 @@ export const Register = () => {
                     <InputField
                         type={"text"}
                         name={"mobile"}
-                        classDesign={"inputFieldStyle"}
+                        classDesign={
+                            credentialsError.mobileError === ""
+                                ? "inputFieldStyle"
+                                : "inputFieldStyle errorInputFieldStyle"
+                        }
                         placeholder={"Móvil ..."}
                         handlerFunction={inputHandler}
+                        onBlurFunction={inputCheck}
                     />
                 </div>
+                <div className="errorText">{credentialsError.mobileError}</div>
                 <div className="dataForm">
                     <div className="textForm">
                         Email:
@@ -114,11 +168,17 @@ export const Register = () => {
                     <InputField
                         type={"email"}
                         name={"email"}
-                        classDesign={"inputFieldStyle"}
+                        classDesign={
+                            credentialsError.emailError === ""
+                                ? "inputFieldStyle"
+                                : "inputFieldStyle errorInputFieldStyle"
+                        }
                         placeholder={"Email ..."}
                         handlerFunction={inputHandler}
+                        onBlurFunction={inputCheck}
                     />
                 </div>
+                <div className="errorText">{credentialsError.emailError}</div>
                 <div className="dataForm">
                     <div className="textForm">
                         Contraseña:
@@ -126,23 +186,17 @@ export const Register = () => {
                     <InputField
                         type={"password"}
                         name={"password"}
-                        classDesign={"inputFieldStyle"}
+                        classDesign={
+                            credentialsError.passwordError === ""
+                                ? "inputFieldStyle"
+                                : "inputFieldStyle errorInputFieldStyle"
+                        }
                         placeholder={"Contraseña ..."}
                         handlerFunction={inputHandler}
+                        onBlurFunction={inputCheck}
                     />
                 </div>
-                <div className="dataForm">
-                    <div className="textForm">
-                        Repite la contraseña:
-                    </div>
-                    <InputField
-                        type={"password"}
-                        name={"repeatPassword"}
-                        classDesign={"inputFieldStyle"}
-                        placeholder={"Repite la contraseña ..."}
-                        handlerFunction={inputHandler}
-                    />
-                </div>
+                <div className="errorText">{credentialsError.passwordError}</div>
                 <FormBtn
                     name={"Registrarme"}
                     pathClick={() => { }}
