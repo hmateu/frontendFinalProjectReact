@@ -21,6 +21,11 @@
     transition: .15s;
 }
 
+.disabled {
+    opacity: 0.2;
+    pointer-events: none;
+}
+
 /* Laptop Query */
 @media screen and (min-width:1200px) {
     .formBtnStyle {

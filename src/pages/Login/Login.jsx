@@ -1,22 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { InputField } from "../../common/inputField/inputField";
 import { FormBtn } from "../../common/FormBtn/FormBtn";
 
 import { useNavigate } from "react-router-dom";
 import { checkForm } from "../../utils/validateForm";
+import { loginMe } from "../../utils/apiCalls/authCalls/authLogin";
+import jwtDecode from "jwt-decode";
+import { login } from "../Users/userSlice";
+import { useDispatch } from "react-redux";
 
 export const Login = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const [credentials, setCredentials] = useState({
         email: "",
         password: ""
     });
 
+    const [token, setToken] = useState("");
+
     const [credentialsError, setCredentialsError] = useState({
         emailError: "",
         passwordError: ""
     });
+
+    const [validation, setValidation] = useState(false);
+
+    useEffect(() => {
+        credentials.email !== "" && credentials.password !== "" && credentialsError.emailError === "" && credentialsError.passwordError === ""
+            ? setValidation(true)
+            : setValidation(false)
+    }, [credentials, credentialsError]);
 
     const inputHandler = (e) => {
         setCredentials((prevState) => ({
@@ -32,6 +47,36 @@ export const Login = () => {
             [e.target.name + "Error"]: errorMessage
         }));
     }
+
+    const logMe = (e, credentials) => {
+        loginMe(credentials)
+            .then((result) => {
+                // ELIMINAR EL CONSOLELOG CUANDO FUNCIONE
+                console.log(`El token es: -> ${result}`);
+                setToken(result);
+            })
+            .catch((error) => {
+                console.log(
+                    "success:", false,
+                    "message", "Catch de la función loginMe en Login.jsx",
+                    "error", error.message
+                )
+            });
+    }
+
+    useEffect(() => {
+        if (token) {
+            let decodedToken = jwtDecode(token);
+            dispatch(
+                login({
+                    token: token,
+                    name: decodedToken.name,
+                    role: decodedToken.roleId
+                })
+            );
+            navigate('/');
+        }
+    }, [token]);
 
     return (
         <div className="pageStyle">
@@ -78,11 +123,13 @@ export const Login = () => {
                     />
                 </div>
                 <div className="errorText">{credentialsError.passwordError}</div>
-                <FormBtn
-                    name={"Iniciar sesión"}
-                    pathClick={() => { }}
-                />
+                <div className={validation ? "btnForm" : "btnForm disabled"}>
+                    <FormBtn
+                        name={"Iniciar sesión"}
+                        pathClick={(e) => logMe(e, credentials)}
+                    />
+                </div>
             </div>
-        </div>
+        </div >
     );
 }
