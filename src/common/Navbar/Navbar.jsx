@@ -19,6 +19,7 @@ export const Navbar = () => {
             </button>
             <ul>
                 <li onClick={() => navigate('/')}>Inicio</li>
+                <li onClick={() => navigate('/about')}>Sobre Nosotros</li>
                 <li className="loginRegister" onClick={() => navigate('/login')}>Login</li>
                 <li className="loginRegister" onClick={() => navigate('/register')}>Register</li>
             </ul>
@@ -30,6 +31,7 @@ export const Navbar = () => {
                 </button>
                 <ul>
                     <li onClick={() => { toggleMobileMenu(); navigate('/') }}>Inicio</li>
+                    <li onClick={() => { toggleMobileMenu(); navigate('/about') }}>Sobre Nosotros</li>
                     <li className="loginRegister" onClick={() => { toggleMobileMenu(); navigate('/login') }}>Login</li>
                     <li className="loginRegister" onClick={() => { toggleMobileMenu(); navigate('/register') }}>Register</li>
                 </ul>
