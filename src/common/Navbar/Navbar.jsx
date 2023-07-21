@@ -7,7 +7,6 @@ export const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const toggleMobileMenu = () => {
-        console.log(isMobileMenuOpen);
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
 
@@ -20,8 +19,8 @@ export const Navbar = () => {
             </button>
             <ul>
                 <li onClick={() => navigate('/')}>Inicio</li>
-                <li className = "loginRegister" onClick={() => navigate('/login')}>Login</li>
-                <li className = "loginRegister" onClick={() => navigate('/register')}>Register</li>
+                <li className="loginRegister" onClick={() => navigate('/login')}>Login</li>
+                <li className="loginRegister" onClick={() => navigate('/register')}>Register</li>
             </ul>
             <div className={`hamburgerContainer ${isMobileMenuOpen ? 'opened' : ''}`}>
                 <button onClick={toggleMobileMenu}>
@@ -31,8 +30,8 @@ export const Navbar = () => {
                 </button>
                 <ul>
                     <li onClick={() => { toggleMobileMenu(); navigate('/') }}>Inicio</li>
-                    <li className = "loginRegister" onClick={() => { toggleMobileMenu(); navigate('/login') }}>Login</li>
-                    <li className = "loginRegister" onClick={() => { toggleMobileMenu(); navigate('/register') }}>Register</li>
+                    <li className="loginRegister" onClick={() => { toggleMobileMenu(); navigate('/login') }}>Login</li>
+                    <li className="loginRegister" onClick={() => { toggleMobileMenu(); navigate('/register') }}>Register</li>
                 </ul>
             </div>
         </div>

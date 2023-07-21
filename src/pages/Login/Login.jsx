@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { InputField } from "../../common/inputField/inputField";
 import { FormBtn } from "../../common/FormBtn/FormBtn";
-
 import { useNavigate } from "react-router-dom";
 import { checkForm } from "../../utils/validateForm";
-import { loginMe } from "../../utils/apiCalls/authCalls/authLogin";
-import jwtDecode from "jwt-decode";
-import { login } from "../Users/userSlice";
+import { loginMe, myRoles } from "../../utils/apiCalls/authCalls";
 import { useDispatch } from "react-redux";
 
 export const Login = () => {
@@ -51,8 +48,6 @@ export const Login = () => {
     const logMe = (e, credentials) => {
         loginMe(credentials)
             .then((result) => {
-                // ELIMINAR EL CONSOLELOG CUANDO FUNCIONE
-                console.log(`El token es: -> ${result}`);
                 setToken(result);
             })
             .catch((error) => {
@@ -66,15 +61,19 @@ export const Login = () => {
 
     useEffect(() => {
         if (token) {
-            let decodedToken = jwtDecode(token);
-            dispatch(
-                login({
-                    token: token,
-                    name: decodedToken.name,
-                    role: decodedToken.roleId
-                })
-            );
             navigate('/');
+            myRoles(token)
+                .then((result) => {
+                    console.log(`Lo que llega a Login.jsx de myRoles() -> ${result}`);
+                    // Guardar los roles en Redux
+                })
+                .catch((error) => {
+                    console.log(
+                        "success:", false,
+                        "message", "Catch de la función myRoles en Login.jsx",
+                        "error", error.message
+                    )
+                });
         }
     }, [token]);
 
