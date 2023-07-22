@@ -16,7 +16,7 @@
     letter-spacing: .2em;
     word-spacing: .3em;
     border-radius: 0 0 40% 40%;
-    box-shadow: -1px 12px 10px -8px rgba(0, 0, 0, 0.75);
+    box-shadow: -.063em .75em .625em -.5em rgba(0, 0, 0, 0.75);
 }
 
 .aboutUs .midSection {

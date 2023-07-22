@@ -18,6 +18,7 @@ body:has(.hamburgerContainer.opened){
   --green: #00ff00;
   --red: #ff0000;
   --lightred: #f38888;
+  --orange: #ffa500;
 }
 
 /* Generic page style */
