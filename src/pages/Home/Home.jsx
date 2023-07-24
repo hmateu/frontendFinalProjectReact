@@ -1,7 +1,9 @@
 import React from "react";
 import "./Home.css"
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
+    const navigate = useNavigate();
     return (
         <>
             <div className="topSection">
@@ -13,7 +15,7 @@ export const Home = () => {
                         <div className="bookTicket">
                             Reserva tu entrada
                         </div>
-                        <div className="discoverAllAttractions">
+                        <div className="discoverAllAttractions" onClick={()=>navigate('/attractions')}>
                             Descubre nuestras atracciones
                         </div>
                     </div>

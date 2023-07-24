@@ -1,6 +1,7 @@
 .homePicture {
     height: 60vh;
     background: url('../../img/home_picture.jpg') no-repeat;
+    background-attachment: fixed;
     background-size: 40em;
     background-position-x: center;
 }
