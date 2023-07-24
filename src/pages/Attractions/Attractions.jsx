@@ -57,7 +57,7 @@ export const Attractions = () => {
                                 }
                             </div>
                         )
-                        : (<div>CARGANDO ...</div>)
+                        : (<div className="loading">CARGANDO ...</div>)
                 }
             </div>
         </div>

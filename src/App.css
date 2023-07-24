@@ -6,7 +6,7 @@
   padding: 0;
 }
 
-body:has(.hamburgerContainer.opened){
+body:has(.hamburgerContainer.opened) {
   overflow: hidden;
 }
 
@@ -67,6 +67,10 @@ body:has(.hamburgerContainer.opened){
 
 .link:hover {
   color: var(--darkblue);
+}
+
+.loading {
+  align-self: center;
 }
 
 /* Laptop Query */
