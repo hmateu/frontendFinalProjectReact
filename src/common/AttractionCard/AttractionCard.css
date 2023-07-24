@@ -82,5 +82,6 @@
     .attractionButton .button {
         height: 8vh;
         font-size: 1.3em;
+        cursor: pointer;
     }
 }

@@ -46,11 +46,12 @@ export const Attractions = () => {
                                 {
                                     attractions.map(attraction => {
                                         return (
-                                                <AttractionCard
-                                                    name={`${attraction.name}`}
-                                                    minHeight={`Altura mínima: ${attraction.min_height} cm`}
-                                                    maxHeight={`Altura máxima: ${attraction.max_height} cm`}
-                                                />
+                                            <AttractionCard
+                                                id={attraction.id}
+                                                name={`${attraction.name}`}
+                                                minHeight={`Altura mínima: ${attraction.min_height} cm`}
+                                                maxHeight={`Altura máxima: ${attraction.max_height} cm`}
+                                            />
                                         );
                                     })
                                 }

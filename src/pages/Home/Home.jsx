@@ -12,7 +12,7 @@ export const Home = () => {
             <div className="bottomSection">
                 <div className="attractions">
                     <div className="allAttractions">
-                        <div className="bookTicket">
+                        <div className="bookTicket" onClick={()=>navigate('/login')}>
                             Reserva tu entrada
                         </div>
                         <div className="discoverAllAttractions" onClick={()=>navigate('/attractions')}>

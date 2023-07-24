@@ -1,7 +1,9 @@
 import React from "react";
 import './AttractionCard.css';
+import { useNavigate } from 'react-router-dom';
 
-export const AttractionCard = ({ picture, name, description, minHeight, maxHeight, length }) => {
+export const AttractionCard = ({ id, picture, name, description, minHeight, maxHeight, length }) => {
+    const navigate = useNavigate();
     return (
         <div className="attractionCardStyle">
             <div className="attractionPicture">{picture}</div>
@@ -15,7 +17,7 @@ export const AttractionCard = ({ picture, name, description, minHeight, maxHeigh
                 </div>
             </div>
             <div className="attractionButton">
-                <div className="button">Descubrir</div>
+                <div className="button" onClick={() => navigate(`/attraction-detail/${id}`)}>Descubrir</div>
             </div>
         </div>
     );
