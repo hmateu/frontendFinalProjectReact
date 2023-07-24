@@ -32,7 +32,7 @@
     justify-content: flex-start;
 }
 
-.inputSection{
+.inputSection {
     margin-top: .5em;
     height: 10vh;
     display: flex;
@@ -40,11 +40,11 @@
     align-items: center;
 }
 
-.inputSection .inputFieldStyle{
+.inputSection .inputFieldStyle {
     width: 65vw;
 }
 
-.attractionsSections{
+.attractionsSections {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -69,12 +69,12 @@
         text-align: center;
     }
 
-    .inputSection .inputFieldStyle{
+    .inputSection .inputFieldStyle {
         width: 20vw;
         margin-bottom: 1em;
     }
 
-    .attractionsSections{
+    .attractionsSections {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         justify-items: center;

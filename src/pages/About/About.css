@@ -2,7 +2,6 @@
     min-height: 80vh;
     display: flex;
     flex-direction: column;
-    /* background-color: aquamarine; */
 }
 
 .aboutUs .topSection {
@@ -21,7 +20,6 @@
 
 .aboutUs .midSection {
     margin-top: 2em;
-    /* background-color: rgb(202, 187, 126); */
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
@@ -29,32 +27,28 @@
 
 .information {
     width: 100vw;
-    /* background-color: rgb(150, 203, 65); */
     display: flex;
     justify-content: center;
 }
 
 .cardInformation {
     width: 90vw;
-    /* background-color: hotpink; */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.titleCardInformation{
+.titleCardInformation {
     width: 85vw;
-    /* background-color: aquamarine; */
     text-align: center;
     font-size: 1.4em;
     font-weight: bold;
 }
 
-.aboutUsInformation{
+.aboutUsInformation {
     margin-top: 1em;
     height: fit-content;
     width: 85vw;
-    /* background-color:crimson; */
     font-size: 1.15em;
     display: flex;
     flex-direction: column;
@@ -83,35 +77,29 @@
 
     .aboutUs .midSection {
         margin-top: 0;
-        /* height: 50vh; */
-        /* background-color: rgb(202, 187, 126); */
         flex-direction: row;
     }
 
     .information {
         height: 80vh;
         width: 50vw;
-        /* background-color: rgb(150, 203, 65); */
         justify-content: flex-end;
         align-items: center;
     }
 
     .cardInformation {
         width: 45vw;
-        /* background-color: hotpink; */
         align-items: flex-end;
         justify-content: center;
     }
 
-    .titleCardInformation{
+    .titleCardInformation {
         width: 40vw;
-        /* background-color: aquamarine; */
         font-size: 2em;
     }
-    
-    .aboutUsInformation{
+
+    .aboutUsInformation {
         width: 40vw;
-        /* background-color:crimson; */
         font-size: 1.3em;
     }
 

@@ -1,0 +1,160 @@
+.attractionDetailStyle .topSection {
+    height: 80vh;
+    background-color: var(--darkblue);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.topSection .attractionInformation {
+    height: 70vh;
+    width: 80vw;
+    margin-bottom: -5em;
+}
+
+.attractionInformation .attractionName {
+    color: white;
+    font-weight: bold;
+    font-size: 2.8em;
+    text-align: center;
+    height: 50%;
+    width: 80vw;
+    display: flex;
+    align-items: center;
+}
+
+.attractionInformation .attractionData {
+    height: 50%;
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+}
+
+.attractionData .cardData {
+    height: 100%;
+    width: 100%;
+    border-radius: 1em;
+    box-shadow: .15em .1em .5em rgba(0, 0, 0, .3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cardData .minHeight,
+.cardData .maxHeight,
+.cardData .length {
+    height: 33.3%;
+    width: 100%;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    padding-left: 1.2em;
+    background-color: white;
+}
+
+.cardData .minHeight {
+    border-radius: 1em 1em 0 0;
+}
+
+.cardData .maxHeight {
+    border-top: .1em solid black;
+    border-bottom: .1em solid black;
+}
+
+.cardData .length {
+    border-radius: 0 0 1em 1em;
+}
+
+.attractionDetailStyle .midSection {
+    height: 45vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.midSection .attractionInformation {
+    height: 50%;
+    width: 100%;
+    align-items: center;
+}
+
+.attractionInformation .attractionDescription {
+    font-size: 1.2em;
+    height: 25vh;
+    width: 85%;
+    text-align: justify;
+}
+
+.attractionDetailStyle .bottomSection {
+    margin-top: 5em;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1em;
+    margin-bottom: 2em;
+}
+
+.bottomSection .otherAttractionsTitle {
+    font-size: 2em;
+}
+
+.bottomSection .allAttractionsButton {
+    font-size: 1.2em;
+    border-radius: 1em;
+    padding: .5em;
+    background-color: var(--orange);
+}
+
+/* Laptop Query */
+@media screen and (min-width:1200px) {
+    .attractionDetailStyle .topSection {
+        height: 40vh;
+        align-items: center;
+    }
+
+    .topSection .attractionInformation {
+        height: 25vh;
+        width: 40vw;
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .attractionInformation .attractionName {
+        font-size: 3em;
+        text-align: center;
+        height: 100%;
+        width: 50%;
+        display: flex;
+        align-items: center;
+    }
+
+    .attractionInformation .attractionData {
+        height: 100%;
+        width: 50%;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .attractionData .cardData {
+        height: 80%;
+        width: 80%;
+    }
+
+    .attractionDetailStyle .midSection {
+        height: 25vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .midSection .attractionInformation {
+        height: 50%;
+        width: 80%;
+    }
+
+    .attractionInformation .attractionDescription {
+        font-size: 1.5em;
+    }
+}
