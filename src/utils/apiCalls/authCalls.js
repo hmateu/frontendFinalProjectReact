@@ -41,10 +41,12 @@ export const myRoles = async (token) => {
 
         let res = await axios.get(`${URL}/auth/profile`, config);
         const roleIds = res.data.data.role.map((role) => role.id);
+        const userId = roleIds[roleIds.length-1];
 
         console.log(`Los roles del perfil son los siguientes ->`, roleIds);
+        console.log(`Me quedo con el último rol. Si tiene varios será el de cliente ->`, userId);
 
-        return roleIds;
+        return userId;
 
     } catch (error) {
         console.error('Error en la llamada a myRoles:', error);

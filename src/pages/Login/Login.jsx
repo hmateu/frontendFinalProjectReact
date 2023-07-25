@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { checkForm } from "../../utils/validateForm";
 import { loginMe, myRoles } from "../../utils/apiCalls/authCalls";
 import { useDispatch } from "react-redux";
+import { login } from "../Users/userSlice";
 
 export const Login = () => {
     const navigate = useNavigate();
@@ -49,6 +50,7 @@ export const Login = () => {
         loginMe(credentials)
             .then((result) => {
                 setToken(result);
+                // console.log(`Este es el token del usuario-> ${result}`)
             })
             .catch((error) => {
                 console.log(
@@ -66,6 +68,14 @@ export const Login = () => {
                 .then((result) => {
                     console.log(`Lo que llega a Login.jsx de myRoles() -> ${result}`);
                     // Guardar los roles en Redux
+                    dispatch(
+                        login(
+                            {
+                                token: token,
+                                role: result
+                            }
+                        )
+                    );
                 })
                 .catch((error) => {
                     console.log(
