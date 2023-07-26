@@ -6,20 +6,20 @@
 }
 
 .errorInputFieldStyle {
-    color: red;
-    border: .25em solid red;
+    color: var(--red);
+    border: .25em solid var(--red);
     font-weight: bold;
 }
 
 .errorInputFieldStyle::placeholder {
     font-weight: normal;
-    color: red;
+    color: var(--red);
 }
 
 .errorText {
     margin-top: -.5em;
     margin-bottom: .5em;
-    color: red;
+    color: var(--red);
     align-self: center;
     font-weight: bold;
 }

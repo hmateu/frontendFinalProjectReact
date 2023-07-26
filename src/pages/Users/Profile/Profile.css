@@ -1,0 +1,66 @@
+.profileStyle {
+    display: flex;
+    flex-direction: column;
+}
+
+.profileStyle .topSection {
+    margin-top: 2em;
+    height: fit-content;
+}
+
+.topSection .profileTitle {
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1em;
+}
+
+.profileStyle .midSection {
+    display: flex;
+    flex-direction: column;
+    row-gap: .5em;
+    align-items: center;
+}
+
+.midSection .dataInput {
+    height: 7vh;
+    width: 95vw;
+    background-color: var(--lightblue);
+    display: flex;
+    align-items: center;
+    font-size: 1.1em;
+    border-radius: .5em;
+}
+
+.dataInput .dataName {
+    width: 33vw;
+    margin-left: 1em;
+    font-weight: bold;
+}
+
+.profileStyle .bottomSection {
+    height: 17vh;
+}
+
+
+/* Laptop Query */
+@media screen and (min-width:1200px) {
+    .topSection .profileTitle {
+        font-size: 2.5em;
+    }
+
+    .midSection .dataInput {
+        width: 36.5vw;
+        height: 8vh;
+        font-size: 1.5em;
+    }
+
+    .dataInput .dataName {
+        width: 13vw;
+        margin-left: 1.3em;
+    }
+
+    .profileStyle .bottomSection {
+        height: 22vh;
+    }
+}

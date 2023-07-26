@@ -31,7 +31,7 @@ export const Navbar = () => {
                 <li onClick={() => navigate('/about')}>Sobre Nosotros</li>
 
                 {token && (
-                    <li onClick={() => navigate('/')}>Mi perfil</li>
+                    <li onClick={() => navigate('/profile')}>Mi perfil</li>
                 )}
                 {
                     !dataRedux?.credentials?.token
@@ -71,7 +71,7 @@ export const Navbar = () => {
                 <li onClick={() => {toggleMobileMenu(); navigate('/about')}}>Sobre Nosotros</li>
 
                 {token && (
-                    <li onClick={() => {toggleMobileMenu(); navigate('/')}}>Mi perfil</li>
+                    <li onClick={() => {toggleMobileMenu(); navigate('/profile')}}>Mi perfil</li>
                 )}
                 {
                     !dataRedux?.credentials?.token
