@@ -40,6 +40,8 @@
 
 .profileStyle .bottomSection {
     height: 17vh;
+    display: flex;
+    align-items: center;
 }
 
 
@@ -49,10 +51,15 @@
         font-size: 2.5em;
     }
 
+    .profileStyle .midSection {
+        row-gap: .7em;
+    }
+
     .midSection .dataInput {
         width: 36.5vw;
         height: 8vh;
         font-size: 1.5em;
+        margin-bottom: .5em;
     }
 
     .dataInput .dataName {

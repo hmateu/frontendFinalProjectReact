@@ -5,6 +5,7 @@ import { myProfile, updateProfile } from "../../../utils/apiCalls/authCalls";
 import { useSelector } from "react-redux";
 import { userData } from "../userSlice";
 import { InputField } from "../../../common/inputField/InputField";
+import { checkForm } from "../../../utils/validateForm";
 
 export const Profile = () => {
 
@@ -13,11 +14,35 @@ export const Profile = () => {
     const token = dataRedux?.credentials?.token;
     const [editing, setEditing] = useState(false);
     const [data, setData] = useState({});
+    const [validation, setValidation] = useState(false);
+
+    const [credentialsError, setCredentialsError] = useState({
+        dniError: "",
+        nameError: "",
+        surnameError: "",
+        ageError: "",
+        cpError: "",
+        mobileError: ""
+    });
+
+    useEffect(() => {
+        credentialsError.dniError === "" && credentialsError.nameError === "" && credentialsError.surnameError === "" && credentialsError.ageError === "" && credentialsError.cpError === "" && credentialsError.mobileError === ""
+            ? setValidation(true)
+            : setValidation(false)
+    }, [credentialsError]);
 
     const inputHandler = (e) => {
         setData((prevState) => ({
             ...prevState,
             [e.target.name]: e.target.value
+        }));
+    }
+
+    const inputCheck = (e) => {
+        let errorMessage = checkForm(e.target.name, e.target.value);
+        setCredentialsError((prevState) => ({
+            ...prevState,
+            [e.target.name + "Error"]: errorMessage
         }));
     }
 
@@ -69,10 +94,11 @@ export const Profile = () => {
                                                 classDesign={"inputFieldStyle"}
                                                 placeholder={user.dni ? user.dni : "Introduce tu DNI ..."}
                                                 handlerFunction={inputHandler}
-                                                onBlurFunction={() => { }}
+                                                onBlurFunction={inputCheck}
                                             />
                                         </div>
                                     </div>
+                                    <div className="errorText">{credentialsError.dniError}</div>
                                     <div className="dataInput">
                                         <div className="dataName">
                                             Nombre
@@ -84,10 +110,11 @@ export const Profile = () => {
                                                 classDesign={"inputFieldStyle"}
                                                 placeholder={user.name ? user.name : "Introduce tu nombre ..."}
                                                 handlerFunction={inputHandler}
-                                                onBlurFunction={() => { }}
+                                                onBlurFunction={inputCheck}
                                             />
                                         </div>
                                     </div>
+                                    <div className="errorText">{credentialsError.nameError}</div>
                                     <div className="dataInput">
                                         <div className="dataName">
                                             Apellidos
@@ -99,10 +126,11 @@ export const Profile = () => {
                                                 classDesign={"inputFieldStyle"}
                                                 placeholder={user.surname ? user.surname : "Introduce tus apellidos ..."}
                                                 handlerFunction={inputHandler}
-                                                onBlurFunction={() => { }}
+                                                onBlurFunction={inputCheck}
                                             />
                                         </div>
                                     </div>
+                                    <div className="errorText">{credentialsError.surnameError}</div>
                                     <div className="dataInput">
                                         <div className="dataName">
                                             Edad
@@ -114,10 +142,11 @@ export const Profile = () => {
                                                 classDesign={"inputFieldStyle"}
                                                 placeholder={user.age ? user.age : "Introduce tu edad ..."}
                                                 handlerFunction={inputHandler}
-                                                onBlurFunction={() => { }}
+                                                onBlurFunction={inputCheck}
                                             />
                                         </div>
                                     </div>
+                                    <div className="errorText">{credentialsError.ageError}</div>
                                     <div className="dataInput">
                                         <div className="dataName">
                                             Código postal
@@ -129,10 +158,11 @@ export const Profile = () => {
                                                 classDesign={"inputFieldStyle"}
                                                 placeholder={user.cp ? user.cp : "Introduce tu código postal ..."}
                                                 handlerFunction={inputHandler}
-                                                onBlurFunction={() => { }}
+                                                onBlurFunction={inputCheck}
                                             />
                                         </div>
                                     </div>
+                                    <div className="errorText">{credentialsError.cpError}</div>
                                     <div className="dataInput">
                                         <div className="dataName">
                                             Móvil
@@ -144,10 +174,11 @@ export const Profile = () => {
                                                 classDesign={"inputFieldStyle"}
                                                 placeholder={user.mobile ? user.mobile : "Introduce tu móvil ..."}
                                                 handlerFunction={inputHandler}
-                                                onBlurFunction={() => { }}
+                                                onBlurFunction={inputCheck}
                                             />
                                         </div>
                                     </div>
+                                    <div className="errorText">{credentialsError.mobileError}</div>
                                     <div className="dataInput">
                                         <div className="dataName">
                                             Email
@@ -226,10 +257,12 @@ export const Profile = () => {
                 {
                     editing
                         ? (
-                            <FormBtn
-                                name={'Confirmar'}
-                                pathClick={() => { handlerSubmit(data, token) }}
-                            />
+                            <div className={validation ? "btnForm" : "btnForm disabled"}>
+                                <FormBtn
+                                    name={'Confirmar'}
+                                    pathClick={() => { handlerSubmit(data, token) }}
+                                />
+                            </div>
                         )
                         : (
                             <FormBtn

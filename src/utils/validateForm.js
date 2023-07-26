@@ -25,6 +25,7 @@ export const checkForm = (name, value) => {
             return ""
 
         case "pc":
+        case "cp":
             if (!/^\d{5}$/.test(value)) {
                 return "Formato del código postal incorrecto"
             }
