@@ -47,10 +47,10 @@ export const Navbar = () => {
                                     // admin
                                     role === 1
                                         ? (
-                                            <li onClick={() => navigate('/')}>Admin</li>
+                                            <li onClick={() => navigate('/profile')}>Admin</li>
                                         )
                                         : (
-                                            <li onClick={() => navigate('/')}>Cliente</li>
+                                            <li>Cliente</li>
                                         )
                                 }<li className="loginRegister" onClick={() => {dispatch(logout()); navigate('/login')}}>LogOut</li>
                             </>
@@ -87,10 +87,10 @@ export const Navbar = () => {
                                     // admin
                                     role === 1
                                         ? (
-                                            <li onClick={() => {toggleMobileMenu(); navigate('/')}}>Admin</li>
+                                            <li onClick={() => {toggleMobileMenu(); navigate('/profile')}}>Admin</li>
                                         )
                                         : (
-                                            <li onClick={() => {toggleMobileMenu(); navigate('/')}}>Cliente</li>
+                                            <li>Cliente</li>
                                         )
                                 }<li className="loginRegister" onClick={() => {toggleMobileMenu(); dispatch(logout()); navigate('/login')}}>LogOut</li>
                             </>

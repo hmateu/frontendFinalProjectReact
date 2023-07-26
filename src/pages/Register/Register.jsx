@@ -1,18 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { InputField } from "../../common/inputField/inputField";
 import { FormBtn } from "../../common/FormBtn/FormBtn";
 import { useNavigate } from "react-router-dom";
 import { checkForm } from "../../utils/validateForm";
+import { registerMe } from "../../utils/apiCalls/authCalls";
 
 export const Register = () => {
     const navigate = useNavigate();
+    const [validation, setValidation] = useState(false);
 
     const [credentials, setCredentials] = useState({
         name: "",
         surname: "",
         dni: "",
         age: "",
-        pc: "",
+        cp: "",
         mobile: "",
         email: "",
         password: ""
@@ -23,11 +25,17 @@ export const Register = () => {
         surnameError: "",
         dniError: "",
         ageError: "",
-        pcError: "",
+        cpError: "",
         mobileError: "",
         emailError: "",
         passwordError: ""
     });
+
+    useEffect(() => {
+        credentials.name !== "" && credentials.surname !== "" && credentials.dni !== "" && credentials.age !== "" && credentials.cp !== "" && credentials.mobile !== "" && credentials.email !== "" && credentials.password !== "" && credentialsError.nameError === "" && credentialsError.surnameError === "" && credentialsError.dniError === "" && credentialsError.ageError === "" && credentialsError.cpError === "" && credentialsError.mobileError === "" && credentialsError.emailError === "" && credentialsError.passwordError === ""
+            ? setValidation(true)
+            : setValidation(false)
+    }, [credentials, credentialsError]);
 
     const inputHandler = (e) => {
         setCredentials((prevState) => ({
@@ -42,6 +50,20 @@ export const Register = () => {
             ...prevState,
             [e.target.name + "Error"]: errorMessage
         }));
+    }
+
+    const registMe = (credentials) => {
+        registerMe(credentials)
+        .then(() => {
+            navigate('/')
+        })
+        .catch((error) => {
+            console.log(
+                "success:", false,
+                "message", "Catch de la función registMe en Register.jsx",
+                "error", error.message
+            )
+        });
     }
 
     return (
@@ -131,9 +153,9 @@ export const Register = () => {
                     </div>
                     <InputField
                         type={"text"}
-                        name={"pc"}
+                        name={"cp"}
                         classDesign={
-                            credentialsError.pcError === ""
+                            credentialsError.cpError === ""
                                 ? "inputFieldStyle"
                                 : "inputFieldStyle errorInputFieldStyle"
                         }
@@ -142,7 +164,7 @@ export const Register = () => {
                         onBlurFunction={inputCheck}
                     />
                 </div>
-                <div className="errorText">{credentialsError.pcError}</div>
+                <div className="errorText">{credentialsError.cpError}</div>
                 <div className="dataForm">
                     <div className="textForm">
                         Móvil:
@@ -197,10 +219,12 @@ export const Register = () => {
                     />
                 </div>
                 <div className="errorText">{credentialsError.passwordError}</div>
-                <FormBtn
-                    name={"Registrarme"}
-                    pathClick={() => { }}
-                />
+                <div className={validation ? "btnForm" : "btnForm disabled"}>
+                    <FormBtn
+                        name={"Registrarme"}
+                        pathClick={(e) => registMe(credentials)}
+                    />
+                </div>
             </div>
         </div>
     );

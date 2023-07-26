@@ -50,7 +50,6 @@ export const Login = () => {
         loginMe(credentials)
             .then((result) => {
                 setToken(result);
-                // console.log(`Este es el token del usuario-> ${result}`)
             })
             .catch((error) => {
                 console.log(
@@ -66,7 +65,7 @@ export const Login = () => {
             navigate('/');
             myRoles(token)
                 .then((result) => {
-                    console.log(`Lo que llega a Login.jsx de myRoles() -> ${result}`);
+                    // console.log(`Lo que llega a Login.jsx de myRoles() -> ${result}`);
                     // Guardar los roles en Redux
                     dispatch(
                         login(
