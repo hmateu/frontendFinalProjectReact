@@ -22,7 +22,7 @@ export const myProfile = async (token) => {
 
         let res = await axios.get(`${URL}/auth/profile`, config);
 
-        console.log(`Los datos del perfil son los siguientes ->`, res.data.data);
+        // console.log(`Los datos del perfil son los siguientes ->`, res.data.data);
 
         return res.data.data;
 
@@ -43,8 +43,8 @@ export const myRoles = async (token) => {
         const roleIds = res.data.data.role.map((role) => role.id);
         const userId = roleIds[roleIds.length-1];
 
-        console.log(`Los roles del perfil son los siguientes ->`, roleIds);
-        console.log(`Me quedo con el último rol. Si tiene varios será el de cliente ->`, userId);
+        // console.log(`Los roles del perfil son los siguientes ->`, roleIds);
+        // console.log(`Me quedo con el último rol. Si tiene varios será el de cliente ->`, userId);
 
         return userId;
 
