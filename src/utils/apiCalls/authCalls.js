@@ -52,3 +52,20 @@ export const myRoles = async (token) => {
         console.error('Error en la llamada a myRoles:', error);
     }
 };
+
+export const updateProfile = async (data,token) => {
+    try {
+        const config = {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        };
+  
+      let res = await axios.put(`${URL}/auth/profile-update`, data, config);
+  
+      return res.data.data;
+  
+    } catch (error) {
+        console.error('Error en la llamada a updateProfile:', error);
+    }
+  };

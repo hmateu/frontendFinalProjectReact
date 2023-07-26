@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './Profile.css';
 import { FormBtn } from "../../../common/FormBtn/FormBtn";
-import { myProfile } from "../../../utils/apiCalls/authCalls";
+import { myProfile, updateProfile } from "../../../utils/apiCalls/authCalls";
 import { useSelector } from "react-redux";
 import { userData } from "../userSlice";
 import { InputField } from "../../../common/inputField/InputField";
@@ -12,6 +12,14 @@ export const Profile = () => {
     const dataRedux = useSelector(userData);
     const token = dataRedux?.credentials?.token;
     const [editing, setEditing] = useState(false);
+    const [data, setData] = useState({});
+
+    const inputHandler = (e) => {
+        setData((prevState) => ({
+            ...prevState,
+            [e.target.name]: e.target.value
+        }));
+    }
 
     useEffect(() => {
         if (!editing) {
@@ -20,6 +28,22 @@ export const Profile = () => {
                 .catch(error => console.log(error))
         }
     }, [editing]);
+
+    const handlerSubmit = (data, token) => {
+        updateProfile(data, token)
+            .then((result) => {
+                setTimeout(() => {
+                    setEditing(false)
+                }, 500)
+            })
+            .catch((error) => {
+                console.log(
+                    "success:", false,
+                    "message", "Catch de la función handlerSubmit en Profile.jsx",
+                    "error", error.message
+                )
+            });
+    };
 
     return (
         <div className="profileStyle">
@@ -40,11 +64,11 @@ export const Profile = () => {
                                         </div>
                                         <div className="dataDescription">
                                             <InputField
-                                                type={"password"}
-                                                name={"password"}
+                                                type={"text"}
+                                                name={"dni"}
                                                 classDesign={"inputFieldStyle"}
                                                 placeholder={user.dni ? user.dni : "Introduce tu DNI ..."}
-                                                handlerFunction={() => { }}
+                                                handlerFunction={inputHandler}
                                                 onBlurFunction={() => { }}
                                             />
                                         </div>
@@ -55,11 +79,11 @@ export const Profile = () => {
                                         </div>
                                         <div className="dataDescription">
                                             <InputField
-                                                type={"password"}
-                                                name={"password"}
+                                                type={"text"}
+                                                name={"name"}
                                                 classDesign={"inputFieldStyle"}
                                                 placeholder={user.name ? user.name : "Introduce tu nombre ..."}
-                                                handlerFunction={() => { }}
+                                                handlerFunction={inputHandler}
                                                 onBlurFunction={() => { }}
                                             />
                                         </div>
@@ -70,10 +94,11 @@ export const Profile = () => {
                                         </div>
                                         <div className="dataDescription">
                                             <InputField
-                                                type={"password"}
-                                                name={"password"}
+                                                type={"text"}
+                                                name={"surname"}
                                                 classDesign={"inputFieldStyle"}
-                                                placeholder={user.surname ? user.surname : "Introduce tus apellidos ..."} handlerFunction={() => { }}
+                                                placeholder={user.surname ? user.surname : "Introduce tus apellidos ..."}
+                                                handlerFunction={inputHandler}
                                                 onBlurFunction={() => { }}
                                             />
                                         </div>
@@ -84,10 +109,11 @@ export const Profile = () => {
                                         </div>
                                         <div className="dataDescription">
                                             <InputField
-                                                type={"password"}
-                                                name={"password"}
+                                                type={"text"}
+                                                name={"age"}
                                                 classDesign={"inputFieldStyle"}
-                                                placeholder={user.age ? user.age : "Introduce tu edad ..."} handlerFunction={() => { }}
+                                                placeholder={user.age ? user.age : "Introduce tu edad ..."}
+                                                handlerFunction={inputHandler}
                                                 onBlurFunction={() => { }}
                                             />
                                         </div>
@@ -98,10 +124,11 @@ export const Profile = () => {
                                         </div>
                                         <div className="dataDescription">
                                             <InputField
-                                                type={"password"}
-                                                name={"password"}
+                                                type={"text"}
+                                                name={"cp"}
                                                 classDesign={"inputFieldStyle"}
-                                                placeholder={user.cp ? user.cp : "Introduce tu código postal ..."} handlerFunction={() => { }}
+                                                placeholder={user.cp ? user.cp : "Introduce tu código postal ..."}
+                                                handlerFunction={inputHandler}
                                                 onBlurFunction={() => { }}
                                             />
                                         </div>
@@ -112,10 +139,11 @@ export const Profile = () => {
                                         </div>
                                         <div className="dataDescription">
                                             <InputField
-                                                type={"password"}
-                                                name={"password"}
+                                                type={"text"}
+                                                name={"mobile"}
                                                 classDesign={"inputFieldStyle"}
-                                                placeholder={user.mobile ? user.mobile : "Introduce tu móvil ..."} handlerFunction={() => { }}
+                                                placeholder={user.mobile ? user.mobile : "Introduce tu móvil ..."}
+                                                handlerFunction={inputHandler}
                                                 onBlurFunction={() => { }}
                                             />
                                         </div>
@@ -125,13 +153,7 @@ export const Profile = () => {
                                             Email
                                         </div>
                                         <div className="dataDescription">
-                                            <InputField
-                                                type={"password"}
-                                                name={"password"}
-                                                classDesign={"inputFieldStyle"}
-                                                placeholder={user.email ? user.email : "Introduce tu email ..."} handlerFunction={() => { }}
-                                                onBlurFunction={() => { }}
-                                            />
+                                            {user.email}
                                         </div>
                                     </div>
                                 </div>
@@ -206,7 +228,7 @@ export const Profile = () => {
                         ? (
                             <FormBtn
                                 name={'Confirmar'}
-                                pathClick={() => { setEditing(false) }}
+                                pathClick={() => { handlerSubmit(data, token) }}
                             />
                         )
                         : (
