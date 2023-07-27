@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import './Attractions.css';
-import { InputField } from "../../common/inputField/inputField";
 import { AttractionCard } from "../../common/AttractionCard/AttractionCard";
 import { bringAllAttractions } from "../../utils/apiCalls/attractionsCalls";
 

@@ -47,7 +47,7 @@ export const Navbar = () => {
                                     // admin
                                     role === 1
                                         ? (
-                                            <li onClick={() => navigate('/profile')}>Admin</li>
+                                            <li onClick={() => navigate('/users')}>Usuarios</li>
                                         )
                                         : (
                                             <li>Cliente</li>
@@ -87,7 +87,7 @@ export const Navbar = () => {
                                     // admin
                                     role === 1
                                         ? (
-                                            <li onClick={() => {toggleMobileMenu(); navigate('/profile')}}>Admin</li>
+                                            <li onClick={() => {toggleMobileMenu(); navigate('/users')}}>Usuarios</li>
                                         )
                                         : (
                                             <li>Cliente</li>
