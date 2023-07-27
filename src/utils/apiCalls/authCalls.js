@@ -4,7 +4,7 @@ const URL = 'http://localhost:8000/api';
 export const registerMe = async (credentials) => {
     try {
         let res = await axios.post(`${URL}/auth/register`, credentials);
-        console.log(`Lo que devuelve AXIOS de regiser -> ${res.data.data}`, JSON.stringify(res.data.data))
+        // console.log(`Lo que devuelve AXIOS de regiser -> ${res.data.data}`, JSON.stringify(res.data.data))
         return JSON.stringify(res.data.data);
 
     } catch (error) {

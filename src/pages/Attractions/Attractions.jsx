@@ -27,18 +27,6 @@ export const Attractions = () => {
 
             </div>
             <div className="bottomSection">
-                <div className="sectionTitle">
-                    ¿Qué atracción buscas?
-                </div>
-                <div className="inputSection">
-                    <InputField
-                        type={"text"}
-                        name={"searchAttraction"}
-                        classDesign={"inputFieldStyle"}
-                        placeholder={"Busca por nombre de atracción ..."}
-                    />
-                </div>
-
                 {
                     attractions.length > 0
                         ? (
@@ -46,12 +34,14 @@ export const Attractions = () => {
                                 {
                                     attractions.map(attraction => {
                                         return (
-                                            <AttractionCard
-                                                id={attraction.id}
-                                                name={`${attraction.name}`}
-                                                minHeight={`Altura mínima: ${attraction.min_height} cm`}
-                                                maxHeight={`Altura máxima: ${attraction.max_height} cm`}
-                                            />
+                                            <div key={attraction.id}>
+                                                <AttractionCard
+                                                    id={attraction.id}
+                                                    name={`${attraction.name}`}
+                                                    minHeight={`Altura mínima: ${attraction.min_height} cm`}
+                                                    maxHeight={`Altura máxima: ${attraction.max_height} cm`}
+                                                />
+                                            </div>
                                         );
                                     })
                                 }
