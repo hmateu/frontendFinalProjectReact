@@ -8,6 +8,7 @@ import { Attractions } from "../Attractions/Attractions";
 import { AttractionDetail } from "../Attractions/Attraction-detail/Attraction-detail";
 import { Profile } from "../Users/Profile/Profile";
 import { Users } from "../Users/Users";
+import { AdminPanel } from "../AdminPanel/AdminPanel";
 
 export const Body = () => {
     return (
@@ -20,6 +21,7 @@ export const Body = () => {
             <Route path="/attractions" element={<Attractions />} />
             <Route path="/attraction-detail/:id" element={<AttractionDetail />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/admin-panel" element={<AdminPanel />} />
             <Route path="/users" element={<Users />} />
         </Routes>
     );

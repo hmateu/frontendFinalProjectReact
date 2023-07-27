@@ -47,12 +47,16 @@ export const Navbar = () => {
                                     // admin
                                     role === 1
                                         ? (
-                                            <li onClick={() => navigate('/users')}>Usuarios</li>
+                                            <li onClick={() => navigate('/admin-panel')}>
+                                                <span class="material-icons-outlined">
+                                                    settings
+                                                </span>
+                                            </li>
                                         )
                                         : (
-                                            <li>Cliente</li>
+                                            <li>Mis entradas</li>
                                         )
-                                }<li className="loginRegister" onClick={() => {dispatch(logout()); navigate('/login')}}>LogOut</li>
+                                }<li className="loginRegister" onClick={() => { dispatch(logout()); navigate('/login') }}>LogOut</li>
                             </>
                         )
                 }
@@ -66,39 +70,43 @@ export const Navbar = () => {
                     </span>
                 </button>
                 <ul>
-                <li onClick={() => {toggleMobileMenu(); navigate('/')}}>Inicio</li>
-                <li onClick={() => {toggleMobileMenu(); navigate('/attractions')}}>Atracciones</li>
-                <li onClick={() => {toggleMobileMenu(); navigate('/about')}}>Sobre Nosotros</li>
+                    <li onClick={() => { toggleMobileMenu(); navigate('/') }}>Inicio</li>
+                    <li onClick={() => { toggleMobileMenu(); navigate('/attractions') }}>Atracciones</li>
+                    <li onClick={() => { toggleMobileMenu(); navigate('/about') }}>Sobre Nosotros</li>
 
-                {token && (
-                    <li onClick={() => {toggleMobileMenu(); navigate('/profile')}}>Mi perfil</li>
-                )}
-                {
-                    !dataRedux?.credentials?.token
-                        ? (
-                            <>
-                                <li className="loginRegister" onClick={() => {toggleMobileMenu(); navigate('/login')}}>Login</li>
-                                <li className="loginRegister" onClick={() => {toggleMobileMenu(); navigate('/register')}}>Register</li>
-                            </>
-                        )
-                        : (
-                            <>
-                                {
-                                    // admin
-                                    role === 1
-                                        ? (
-                                            <li onClick={() => {toggleMobileMenu(); navigate('/users')}}>Usuarios</li>
-                                        )
-                                        : (
-                                            <li>Cliente</li>
-                                        )
-                                }<li className="loginRegister" onClick={() => {toggleMobileMenu(); dispatch(logout()); navigate('/login')}}>LogOut</li>
-                            </>
-                        )
-                }
+                    {token && (
+                        <li onClick={() => { toggleMobileMenu(); navigate('/profile') }}>Mi perfil</li>
+                    )}
+                    {
+                        !dataRedux?.credentials?.token
+                            ? (
+                                <>
+                                    <li className="loginRegister" onClick={() => { toggleMobileMenu(); navigate('/login') }}>Login</li>
+                                    <li className="loginRegister" onClick={() => { toggleMobileMenu(); navigate('/register') }}>Register</li>
+                                </>
+                            )
+                            : (
+                                <>
+                                    {
+                                        // admin
+                                        role === 1
+                                            ? (
+                                                <li onClick={() => { toggleMobileMenu(); navigate('/admin-panel') }}>
+                                                    <span class="material-icons-outlined">
+                                                        settings
+                                                    </span>
+                                                </li>
+                                            )
+                                            : (
+                                                <li>Mis entradas</li>
+                                            )
+                                    }<li className="loginRegister" onClick={() => { toggleMobileMenu(); dispatch(logout()); navigate('/login') }}>LogOut</li>
+                                </>
+                            )
+                    }
 
 
-            </ul>
+                </ul>
             </div>
         </div>
     );
