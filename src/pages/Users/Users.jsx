@@ -36,13 +36,13 @@ export const Users = () => {
                                         return (
                                             <div key={user.id}>
                                                 <UserCard
-                                                    name={`${user.name}`}
-                                                    surname={`${user.surname}`}
-                                                    dni={`DNI: ${user.dni}`}
-                                                    age={`Edad: ${user.age} años`}
-                                                    cp={`CP: ${user.cp}`}
-                                                    mobile={`Móvil: ${user.mobile}`}
-                                                    email={`Email: ${user.email}`}
+                                                    name={user.name}
+                                                    surname={user.surname}
+                                                    dni={user.dni}
+                                                    age={`${user.age} años`}
+                                                    cp={user.cp}
+                                                    mobile={user.mobile}
+                                                    email={user.email}
                                                 />
                                             </div>
                                         );

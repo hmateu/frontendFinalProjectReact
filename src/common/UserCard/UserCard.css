@@ -30,7 +30,7 @@
 
 .userButton {
     height: 10vh;
-    width: 50vw;
+    width: 75vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,6 +58,7 @@
 
     .secondaryInformation {
         font-size: 1.2em;
+        width: fit-content;
     }
 
     .userButton {

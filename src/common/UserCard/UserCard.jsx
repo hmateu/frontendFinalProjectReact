@@ -9,12 +9,12 @@ export const UserCard = ({ id, dni, name, surname, age, cp, mobile, email }) => 
             <div className="userInformation">
                 <div className="userName">{name}</div>
                 <div className="secondaryInformation">
-                    <div>{surname}</div>
-                    <div>{dni}</div>
-                    <div>{age}</div>
-                    <div>{cp}</div>
-                    <div>{mobile}</div>
-                    <div>{email}</div>
+                    <div><strong></strong>{surname}</div>
+                    <div><strong>DNI: </strong>{dni}</div>
+                    <div><strong>Edad: </strong>{age}</div>
+                    <div><strong>CP: </strong>{cp}</div>
+                    <div><strong>Móvil: </strong>{mobile}</div>
+                    <div><strong>Email: </strong>{email}</div>
                 </div>
             </div>
             <div className="userButton">
