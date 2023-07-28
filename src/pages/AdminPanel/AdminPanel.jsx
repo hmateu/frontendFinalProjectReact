@@ -11,16 +11,23 @@ export const AdminPanel = () => {
                 </div>
             </div>
             <div className="bottomSection">
-                <AdminCard
-                name={'Usuarios'}
-                button={'Ver todos'}
-                patchClick={'/users'}
-                />
-                <AdminCard
-                name={'Atracciones'}
-                button={'Ver todas'}
-                patchClick={'/attractions'}
-                />
+                <div className="adminOptionsSections">
+                    <AdminCard
+                        name={'Usuarios'}
+                        button={'Ver todos'}
+                        patchClick={'/users'}
+                    />
+                    <AdminCard
+                        name={'Atracciones'}
+                        button={'Ver todas'}
+                        patchClick={'/attractions'}
+                    />
+                    <AdminCard
+                        name={'Entradas'}
+                        button={'Ver todas'}
+                        patchClick={'/tickets'}
+                    />
+                </div>
             </div>
         </div>
     );
