@@ -1,0 +1,75 @@
+.ticketCardStyle {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: .7em;
+    box-shadow: .15em .1em .5em rgba(0, 0, 0, .3);
+}
+
+.ticketInformation {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.ticketName {
+    font-size: 1.2em;
+    padding-top: .6em;
+    padding-bottom: .1em;
+    padding-left: .5em;
+    font-weight: bold;
+}
+
+.secondaryInformation {
+    width: 60vw;
+    padding-left: .75em;
+    display: flex;
+    flex-direction: column;
+    row-gap: .5em;
+}
+
+.ticketButton {
+    height: 10vh;
+    width: 75vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ticketButton .button {
+    height: 6vh;
+    width: 90%;
+    background-color: var(--orange);
+    border-radius: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Laptop Query */
+@media screen and (min-width:1200px) {
+    .ticketInformation {
+        width: 22vw;
+    }
+
+    .ticketName {
+        font-size: 1.7em;
+    }
+
+    .secondaryInformation {
+        font-size: 1.2em;
+        width: fit-content;
+    }
+
+    .ticketButton {
+        height: 15vh;
+        width: 22vw;
+    }
+
+    .ticketButton .button {
+        height: 8vh;
+        font-size: 1.3em;
+        cursor: pointer;
+    }
+}

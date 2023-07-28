@@ -9,6 +9,7 @@ import { AttractionDetail } from "../Attractions/Attraction-detail/Attraction-de
 import { Profile } from "../Users/Profile/Profile";
 import { Users } from "../Users/Users";
 import { AdminPanel } from "../AdminPanel/AdminPanel";
+import { Tickets } from "../Tickets/Tickets";
 
 export const Body = () => {
     return (
@@ -23,6 +24,7 @@ export const Body = () => {
             <Route path="/profile" element={<Profile />} />
             <Route path="/admin-panel" element={<AdminPanel />} />
             <Route path="/users" element={<Users />} />
+            <Route path="/tickets" element={<Tickets />} />
         </Routes>
     );
 }
