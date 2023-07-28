@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import './MyTickets.css';
 import { MyTicketCard } from "../../../common/MyTicketCard/MyTicketCard";
+import { useSelector } from "react-redux";
+import { userData } from "../../Users/userSlice";
+import { bringMyTickets } from "../../../utils/apiCalls/ticketsCalls";
 
 export const MyTickets = () => {
+    const [tickets, setTickets] = useState([]);
+    const dataRedux = useSelector(userData);
+    const token = dataRedux?.credentials?.token;
+
+    if (tickets.length === 0) {
+        bringMyTickets(token)
+            .then((tickets) => {
+                let ticketsData = JSON.parse(tickets);
+                setTickets(ticketsData);
+            })
+            .catch(error => console.log(error))
+    }
+
     return (
         <div className="myTicketsStyle">
             <div className="topSection">
@@ -11,14 +27,28 @@ export const MyTickets = () => {
                 </div>
             </div>
             <div className="bottomSection">
-                <div className="myTicketsSection">
-                    <MyTicketCard
-                    date={'11/4/2024'}
-                    ticketType={'General'}
-                    price={25}
-                    validated={'No'}
-                    />
-                </div>
+                {
+                    tickets.length > 0
+                        ? (
+                            <div className="myTicketsSection">
+                                {
+                                    tickets.map(ticket => {
+                                        return (
+                                            <div key={ticket.id}>
+                                                <MyTicketCard
+                                                    date={ticket.date}
+                                                    ticketType={ticket.ticket_type.name}
+                                                    price={`${ticket.price}€`}
+                                                    validated={ticket.validated ? 'Sí' : 'No'}
+                                                />
+                                            </div>
+                                        );
+                                    })
+                                }
+                            </div>
+                        )
+                        : (<div className="loading">CARGANDO ...</div>)
+                }
             </div>
         </div>
     );

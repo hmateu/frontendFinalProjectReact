@@ -26,7 +26,7 @@ export const Body = () => {
             <Route path="/admin-panel" element={<AdminPanel />} />
             <Route path="/users" element={<Users />} />
             <Route path="/tickets" element={<Tickets />} />
-            <Route path="/tickets-me" element={<MyTickets />} />
+            <Route path="/my-tickets" element={<MyTickets />} />
         </Routes>
     );
 }

@@ -10,7 +10,6 @@ export const Tickets = () => {
     const dataRedux = useSelector(userData);
     const token = dataRedux?.credentials?.token;
 
-
     if (tickets.length === 0) {
         bringAllTickets(token)
             .then((tickets) => {
@@ -24,11 +23,11 @@ export const Tickets = () => {
         deleteOneTicketById(id, token)
             .then(() => {
                 bringAllTickets(token)
-                .then((tickets) => {
-                    let ticketsData = JSON.parse(tickets);
-                    setTickets(ticketsData);
-                })
-                .catch(error => console.log(error))
+                    .then((tickets) => {
+                        let ticketsData = JSON.parse(tickets);
+                        setTickets(ticketsData);
+                    })
+                    .catch(error => console.log(error))
             })
             .catch(error => console.log(error))
     }
