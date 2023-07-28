@@ -1,0 +1,48 @@
+.myTicketCardStyle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: .7em;
+    box-shadow: .15em .1em .5em rgba(0, 0, 0, .3);
+}
+
+.myTicketInformation {
+    width: 65vw;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.myTicketName {
+    font-size: 1.2em;
+    padding-top: .6em;
+    padding-bottom: .1em;
+    padding-left: 1.3em;
+    font-weight: bold;
+}
+
+.myTicketInformation .secondaryInformation {
+    width: 60vw;
+    padding-left: 1.5em;
+    display: flex;
+    flex-direction: column;
+    row-gap: .5em;
+}
+
+/* Laptop Query */
+@media screen and (min-width:1200px) {
+    .myTicketInformation {
+        width: 22vw;
+        height: 25vh;
+    }
+
+    .myTicketName {
+        font-size: 1.7em;
+        padding-left: 1.1em;
+    }
+
+    .myTicketInformation .secondaryInformation {
+        font-size: 1.2em;
+        width: fit-content;
+    }
+}

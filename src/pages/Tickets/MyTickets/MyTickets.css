@@ -1,11 +1,11 @@
-.ticketsStyle{
-    min-height: 80vh;
+.myTicketsStyle {
+    min-height: 67vh;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.ticketsStyle .topSection {
+.myTicketsStyle .topSection {
     margin-top: 2em;
     height: fit-content;
     display: flex;
@@ -15,7 +15,7 @@
     margin-bottom: 2em;
 }
 
-.ticketsSection {
+.myTicketsSection {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,10 +24,13 @@
     margin-bottom: 3em;
 }
 
-
 /* Laptop Query */
 @media screen and (min-width:1200px) {
-    .ticketsSection {
+    .myTicketsStyle {
+        min-height: 79vh;
+    }
+
+    .myTicketsSection {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         justify-items: center;

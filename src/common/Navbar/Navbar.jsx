@@ -54,7 +54,7 @@ export const Navbar = () => {
                                             </li>
                                         )
                                         : (
-                                            <li>Mis entradas</li>
+                                            <li onClick={() => navigate('/tickets-me')}>Mis entradas</li>
                                         )
                                 }<li className="loginRegister" onClick={() => { dispatch(logout()); navigate('/login') }}>LogOut</li>
                             </>
@@ -98,7 +98,7 @@ export const Navbar = () => {
                                                 </li>
                                             )
                                             : (
-                                                <li>Mis entradas</li>
+                                                <li onClick={() => { toggleMobileMenu(); navigate('/tickets-me') }}>Mis entradas</li>
                                             )
                                     }<li className="loginRegister" onClick={() => { toggleMobileMenu(); dispatch(logout()); navigate('/login') }}>LogOut</li>
                                 </>
