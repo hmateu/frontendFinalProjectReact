@@ -2,7 +2,7 @@ import React from "react";
 import './TicketCard.css';
 import { useNavigate } from 'react-router-dom';
 
-export const TicketCard = ({ id, date, customerId, customerName, customerSurname, ticketType, price, validated }) => {
+export const TicketCard = ({ id, date, customerId, customerName, customerSurname, ticketType, price, validated, deteleFunction }) => {
     const navigate = useNavigate();
     return (
         <div className="ticketCardStyle">
@@ -19,7 +19,7 @@ export const TicketCard = ({ id, date, customerId, customerName, customerSurname
                 </div>
             </div>
             <div className="ticketButton">
-                <div className="button">Eliminar</div>
+                <div className="button" onClick={()=>deteleFunction()}>Eliminar</div>
             </div>
         </div>
     );

@@ -15,17 +15,17 @@ export const AdminPanel = () => {
                     <AdminCard
                         name={'Usuarios'}
                         button={'Ver todos'}
-                        patchClick={'/users'}
+                        pathClick={'/users'}
                     />
                     <AdminCard
                         name={'Atracciones'}
                         button={'Ver todas'}
-                        patchClick={'/attractions'}
+                        pathClick={'/attractions'}
                     />
                     <AdminCard
                         name={'Entradas'}
                         button={'Ver todas'}
-                        patchClick={'/tickets'}
+                        pathClick={'/tickets'}
                     />
                 </div>
             </div>
