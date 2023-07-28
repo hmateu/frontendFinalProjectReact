@@ -38,11 +38,11 @@ export const Users = () => {
                                                 <UserCard
                                                     name={`${user.name}`}
                                                     surname={`${user.surname}`}
-                                                    dni={`${user.dni}`}
-                                                    age={`${user.age}`}
-                                                    cp={`${user.cp}`}
-                                                    mobile={`${user.mobile}`}
-                                                    email={`${user.email}`}
+                                                    dni={`DNI: ${user.dni}`}
+                                                    age={`Edad: ${user.age} años`}
+                                                    cp={`CP: ${user.cp}`}
+                                                    mobile={`Móvil: ${user.mobile}`}
+                                                    email={`Email: ${user.email}`}
                                                 />
                                             </div>
                                         );
