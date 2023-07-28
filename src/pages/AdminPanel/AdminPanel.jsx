@@ -18,6 +18,11 @@ export const AdminPanel = () => {
                         pathClick={'/users'}
                     />
                     <AdminCard
+                        name={'Usuarios'}
+                        button={'Registrar'}
+                        pathClick={'/register'}
+                    />
+                    <AdminCard
                         name={'Atracciones'}
                         button={'Ver todas'}
                         pathClick={'/attractions'}

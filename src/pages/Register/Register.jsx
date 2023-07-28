@@ -4,10 +4,14 @@ import { FormBtn } from "../../common/FormBtn/FormBtn";
 import { useNavigate } from "react-router-dom";
 import { checkForm } from "../../utils/validateForm";
 import { registerMe } from "../../utils/apiCalls/authCalls";
+import { useSelector } from "react-redux";
+import { userData } from "../Users/userSlice";
 
 export const Register = () => {
     const navigate = useNavigate();
     const [validation, setValidation] = useState(false);
+    const dataRedux = useSelector(userData);
+    const token = dataRedux?.credentials?.token;
 
     const [credentials, setCredentials] = useState({
         name: "",
@@ -54,16 +58,16 @@ export const Register = () => {
 
     const registMe = (credentials) => {
         registerMe(credentials)
-        .then(() => {
-            navigate('/')
-        })
-        .catch((error) => {
-            console.log(
-                "success:", false,
-                "message", "Catch de la función registMe en Register.jsx",
-                "error", error.message
-            )
-        });
+            .then(() => {
+                navigate('/')
+            })
+            .catch((error) => {
+                console.log(
+                    "success:", false,
+                    "message", "Catch de la función registMe en Register.jsx",
+                    "error", error.message
+                )
+            });
     }
 
     return (
@@ -72,9 +76,13 @@ export const Register = () => {
                 <div className="viewTitle">
                     ¡Nos alegramos de conocerte!
                 </div>
-                <div className="askAccount">
-                    Si ya tienes cuenta, <span className="link" onClick={() => navigate('/login')}>inicia sesión aquí</span>
-                </div>
+                {
+                    !token && (
+                        <div className="askAccount">
+                            Si ya tienes cuenta, <span className="link" onClick={() => navigate('/login')}>inicia sesión aquí</span>
+                        </div>
+                    )
+                }
                 <div className="dataForm">
                     <div className="textForm">
                         Nombre:
