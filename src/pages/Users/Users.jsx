@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './Users.css';
 import { UserCard } from "../../common/UserCard/UserCard";
-import { bringAllUsers } from "../../utils/apiCalls/usersCalls";
+import { bringAllUsers, deleteOneUserById } from "../../utils/apiCalls/usersCalls";
 import { useSelector } from "react-redux";
 import { userData } from "./userSlice";
 
@@ -15,6 +15,19 @@ export const Users = () => {
             .then((users) => {
                 let usersData = JSON.parse(users);
                 setUsers(usersData);
+            })
+            .catch(error => console.log(error))
+    }
+
+    const deleteUserById = (id) => {
+        deleteOneUserById(id, token)
+            .then(() => {
+                bringAllUsers(token)
+                    .then((users) => {
+                        let usersData = JSON.parse(users);
+                        setUsers(usersData);
+                    })
+                    .catch(error => console.log(error))
             })
             .catch(error => console.log(error))
     }
@@ -43,6 +56,7 @@ export const Users = () => {
                                                     cp={user.cp}
                                                     mobile={user.mobile}
                                                     email={user.email}
+                                                    deteleFunction={() => deleteUserById(user.id)}
                                                 />
                                             </div>
                                         );

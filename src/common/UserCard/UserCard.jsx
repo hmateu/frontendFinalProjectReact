@@ -2,7 +2,7 @@ import React from "react";
 import './UserCard.css';
 import { useNavigate } from 'react-router-dom';
 
-export const UserCard = ({ id, dni, name, surname, age, cp, mobile, email }) => {
+export const UserCard = ({ id, dni, name, surname, age, cp, mobile, email, deteleFunction }) => {
     const navigate = useNavigate();
     return (
         <div className="userCardStyle">
@@ -18,7 +18,7 @@ export const UserCard = ({ id, dni, name, surname, age, cp, mobile, email }) => 
                 </div>
             </div>
             <div className="userButton">
-                <div className="button">Eliminar</div>
+                <div className="button" onClick={()=>deteleFunction()}>Eliminar</div>
             </div>
         </div>
     );
