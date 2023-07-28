@@ -11,6 +11,7 @@ import { Users } from "../Users/Users";
 import { AdminPanel } from "../AdminPanel/AdminPanel";
 import { Tickets } from "../Tickets/Tickets";
 import { MyTickets } from "../Tickets/MyTickets/MyTickets";
+import { NewTicket } from "../Tickets/NewTicket/NewTicket";
 
 export const Body = () => {
     return (
@@ -27,6 +28,7 @@ export const Body = () => {
             <Route path="/users" element={<Users />} />
             <Route path="/tickets" element={<Tickets />} />
             <Route path="/my-tickets" element={<MyTickets />} />
+            <Route path="/new-ticket" element={<NewTicket />} />
         </Routes>
     );
 }

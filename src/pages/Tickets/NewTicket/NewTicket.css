@@ -1,0 +1,15 @@
+.newTicketStyle {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newTicketStyle .topSection {
+    margin-top: 2em;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: .8em;
+}
