@@ -1,9 +1,7 @@
 import React from "react";
 import './TicketTypeCard.css';
-import { useNavigate } from 'react-router-dom';
 
-export const TicketTypeCard = ({ name, description }) => {
-    const navigate = useNavigate();
+export const TicketTypeCard = ({ name, description, value, incrementValue, decrementValue }) => {
     return (
         <div className="ticketTypeCardStyle">
             <div className="ticketTypeInformation">
@@ -11,13 +9,13 @@ export const TicketTypeCard = ({ name, description }) => {
                 <div className="ticketTypeDescription">{description}</div>
             </div>
             <div className="ticketTypeButtons">
-                <div className="lessButton">
+                <div className="lessButton" onClick={()=>decrementValue()}>
                     <span class="material-icons-outlined">
                         expand_more
                     </span>
                 </div>
-                <div className="dataButton">0</div>
-                <div className="moreButton">
+                <div className="dataButton">{value}</div>
+                <div className="moreButton" onClick={()=>incrementValue()}>
                     <span class="material-icons-outlined">
                         expand_less
                     </span>

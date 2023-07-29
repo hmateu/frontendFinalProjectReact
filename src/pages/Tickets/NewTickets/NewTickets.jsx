@@ -9,10 +9,13 @@ import { useNavigate } from "react-router-dom";
 export const NewTickets = () => {
 
     const navigate = useNavigate();
-    const [selectedDate, setSelectedDate] = useState(null);
     const today = new Date();
+    const [selectedDate, setSelectedDate] = useState(null);
     const maxDate = addMonths(today, 3);
     const datepickerRef = useRef(null);
+    let [generalValue, setGeneralValue] = useState(0);
+    let [juniorValue, setJuniorValue] = useState(0);
+    let [reduceValue, setReduceValue] = useState(0);
 
     const handleDateChange = (date) => {
         setSelectedDate(date);
@@ -25,6 +28,61 @@ export const NewTickets = () => {
     useEffect(() => {
         openCalendar();
     }, []);
+
+    const incrementGeneralTicket = () => {
+        generalValue === 5
+            ? (
+                generalValue
+            )
+            : (
+                setGeneralValue(generalValue += 1)
+            )
+    }
+    const decrementGeneralTicket = () => {
+        generalValue === 0
+            ? (
+                generalValue
+            )
+            : (
+                setGeneralValue(generalValue -= 1)
+            )
+    }
+    const incrementJuniorTicket = () => {
+        juniorValue === 5
+        ? (
+            juniorValue
+        )
+        : (
+            setJuniorValue(juniorValue += 1)
+        )
+    }
+    const decrementJuniorTicket = () => {
+        juniorValue === 0
+            ? (
+                juniorValue
+            )
+            : (
+                setJuniorValue(juniorValue -= 1)
+            )
+    }
+    const incrementReduceTicket = () => {
+        reduceValue === 5
+            ? (
+                reduceValue
+            )
+            : (
+                setReduceValue(reduceValue += 1)
+            )
+    }
+    const decrementReduceTicket = () => {
+        reduceValue === 0
+            ? (
+                reduceValue
+            )
+            : (
+                setReduceValue(reduceValue -= 1)
+            )
+    }
 
     return (
         <div className="newTicketsStyle">
@@ -43,14 +101,23 @@ export const NewTickets = () => {
                         <TicketTypeCard
                             name={`Entrada GENERAL 1 día`}
                             description={`(de 11 a 59 años)`}
+                            value={generalValue}
+                            incrementValue={() => incrementGeneralTicket()}
+                            decrementValue={() => decrementGeneralTicket()}
                         />
                         <TicketTypeCard
                             name={`Entrada JUNIOR 1 día`}
                             description={`(menores de 11 años)`}
+                            value={juniorValue}
+                            incrementValue={() => incrementJuniorTicket()}
+                            decrementValue={() => decrementJuniorTicket()}
                         />
                         <TicketTypeCard
                             name={`Entrada REDUCIDA 1 día`}
                             description={`(mayores de 59 años)`}
+                            value={reduceValue}
+                            incrementValue={() => incrementReduceTicket()}
+                            decrementValue={() => decrementReduceTicket()}
                         />
                     </div>
                 </div>
@@ -71,7 +138,13 @@ export const NewTickets = () => {
                     />
                 </div>
                 <div className="confirmationButton">
-                    <div className="confirmButton" onClick={()=>navigate('/my-tickets')}>
+                    <div className="confirmButton" onClick={() => {
+                        console.log(`Entradas General ${generalValue}`)
+                        console.log(`Entradas Junior ${juniorValue}`)
+                        console.log(`Entradas Reducida ${reduceValue}`)
+                        console.log(`Fecha ${selectedDate}`)
+                        navigate('/my-tickets')
+                        }}>
                         Comprar
                     </div>
                 </div>
