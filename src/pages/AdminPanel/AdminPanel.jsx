@@ -25,7 +25,7 @@ export const AdminPanel = () => {
                     <AdminCard
                         name={'Atracciones'}
                         button={'Ver todas'}
-                        pathClick={'/attractions'}
+                        pathClick={'/attractions-admin'}
                     />
                     <AdminCard
                         name={'Entradas'}

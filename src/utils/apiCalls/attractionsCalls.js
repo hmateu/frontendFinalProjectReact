@@ -11,6 +11,22 @@ export const bringAllAttractions = async () => {
     }
 }
 
+export const bringAllAttractionsByAdmin = async (token) => {
+    try {
+        const config = {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        };
+
+        let res = await axios.get(`${URL}/attractions-admin`, config);
+        return JSON.stringify(res.data.data);
+
+    } catch (error) {
+        console.error('Error en la llamada a bringAllAttractionsByAdmin:', error);
+    }
+}
+
 export const bringAttractionById = async (id) => {
     try {
         let res = await axios.get(`${URL}/attraction/${id}`);
