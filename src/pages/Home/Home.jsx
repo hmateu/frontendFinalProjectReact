@@ -18,7 +18,7 @@ export const Home = () => {
                 <div className="attractions">
                     <div className="allAttractions">
                         <div className="bookTicket" onClick={() => {
-                            token != "" ? (navigate('/new-ticket')) : (navigate('/login'))
+                            token != "" ? (navigate('/new-tickets')) : (navigate('/login'))
                         }}>
                             Reserva tu entrada
                         </div>

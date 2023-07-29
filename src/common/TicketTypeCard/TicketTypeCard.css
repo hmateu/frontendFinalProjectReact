@@ -1,0 +1,102 @@
+.ticketTypeCardStyle {
+    box-shadow: .15em .1em .5em rgba(0, 0, 0, .3);
+    border-radius: .7em;
+    height: 11vh;
+    display: flex;
+}
+
+.ticketTypeInformation {
+    width: 60%;
+    border-radius: .7em 0 0 .7em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: .3em;
+}
+
+.ticketTypeName {
+    padding-left: .5em;
+    font-weight: bold;
+}
+
+.ticketTypeDescription {
+    padding-left: .5em;
+}
+
+.ticketTypeButtons {
+    width: 40%;
+    border-radius: 0 .7em .7em 0;
+    display: flex;
+    justify-content: center;
+    column-gap: .5em;
+}
+
+.lessButton,
+.dataButton,
+.moreButton {
+    height: 5vh;
+    width: 5vh;
+    border-radius: .5em;
+    margin-top: .5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lessButton,
+.moreButton{
+    cursor: pointer;
+}
+
+.lessButton {
+    border: .15em solid var(--blue);
+    color: var(--blue);
+}
+.lessButton:hover {
+    background-color: var(--lightblue);
+}
+
+.dataButton {
+    background-color: lightgrey;
+}
+
+.moreButton {
+    background-color: var(--blue);
+    color: white;
+}
+.moreButton:hover {
+    background-color: var(--darkblue);
+}
+
+/* Laptop Query */
+@media screen and (min-width:1200px) {
+    .ticketTypeCardStyle {
+        height: 13vh;
+        width: 36vw;
+    }
+
+    .ticketTypeInformation {
+        justify-content: flex-start;
+        padding-top: .5em;
+    }
+
+    .ticketTypeName {
+        font-size: 1.5em;
+    }
+
+    .ticketTypeDescription {
+        font-size: 1.2em;
+    }
+
+    .lessButton,
+    .dataButton,
+    .moreButton {
+        height: 7vh;
+        width: 7vh;
+        border-radius: .7em;
+    }
+
+    .lessButton {
+        border: .2em solid var(--blue);
+    }
+}

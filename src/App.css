@@ -73,6 +73,10 @@ body:has(.hamburgerContainer.opened) {
   align-self: center;
 }
 
+.react-datepicker__input-container input {
+  display: none;
+}
+
 /* Laptop Query */
 @media screen and (min-width:1200px) {
   .pageStyle {
