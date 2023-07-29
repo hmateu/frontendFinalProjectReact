@@ -64,6 +64,14 @@ export const NewTickets = () => {
         navigate('/my-tickets');
     }
 
+    const [validation, setValidation] = useState(false);
+
+    useEffect(() => {
+        generalValue > 0 || juniorValue > 0 || reduceValue > 0
+            ? setValidation(true)
+            : setValidation(false)
+    }, [generalValue, juniorValue, reduceValue]);
+
     return (
         <div className="newTicketsStyle">
             <div className="topSection">
@@ -118,8 +126,10 @@ export const NewTickets = () => {
                     />
                 </div>
                 <div className="confirmationButton">
-                    <div className="confirmButton" onClick={() => purchasingProcess()}>
-                        Comprar
+                    <div className={validation ? "btnForm" : "btnForm disabled"}>
+                        <div className="confirmButton" onClick={() => purchasingProcess()}>
+                            Comprar
+                        </div>
                     </div>
                 </div>
             </div>
