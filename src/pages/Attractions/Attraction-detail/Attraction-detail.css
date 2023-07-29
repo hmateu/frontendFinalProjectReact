@@ -103,8 +103,13 @@
     font-size: 1.2em;
     border-radius: 1em;
     padding: .5em;
-    background-color: var(--orange);
+    background-color: var(--blue);
+    color: white;
     cursor: pointer;
+}
+
+.bottomSection .allAttractionsButton:hover {
+    background-color: var(--darkblue);
 }
 
 /* Laptop Query */

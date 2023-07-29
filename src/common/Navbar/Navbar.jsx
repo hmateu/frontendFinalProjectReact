@@ -38,7 +38,7 @@ export const Navbar = () => {
                         ? (
                             <>
                                 <li className="loginRegister" onClick={() => navigate('/login')}>Login</li>
-                                <li className="loginRegister" onClick={() => navigate('/register')}>Register</li>
+                                <li className="loginRegister" onClick={() => navigate('/register')}>Regístrate</li>
                             </>
                         )
                         : (
@@ -56,7 +56,7 @@ export const Navbar = () => {
                                         : (
                                             <li onClick={() => navigate('/my-tickets')}>Mis entradas</li>
                                         )
-                                }<li className="loginRegister" onClick={() => { dispatch(logout()); navigate('/login') }}>LogOut</li>
+                                }<li className="loginRegister" onClick={() => { dispatch(logout()); navigate('/login') }}>Salir</li>
                             </>
                         )
                 }
@@ -82,7 +82,7 @@ export const Navbar = () => {
                             ? (
                                 <>
                                     <li className="loginRegister" onClick={() => { toggleMobileMenu(); navigate('/login') }}>Login</li>
-                                    <li className="loginRegister" onClick={() => { toggleMobileMenu(); navigate('/register') }}>Register</li>
+                                    <li className="loginRegister" onClick={() => { toggleMobileMenu(); navigate('/register') }}>Regístrate</li>
                                 </>
                             )
                             : (
@@ -100,7 +100,7 @@ export const Navbar = () => {
                                             : (
                                                 <li onClick={() => { toggleMobileMenu(); navigate('/my-tickets') }}>Mis entradas</li>
                                             )
-                                    }<li className="loginRegister" onClick={() => { toggleMobileMenu(); dispatch(logout()); navigate('/login') }}>LogOut</li>
+                                    }<li className="loginRegister" onClick={() => { toggleMobileMenu(); dispatch(logout()); navigate('/login') }}>Salir</li>
                                 </>
                             )
                     }

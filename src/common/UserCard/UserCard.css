@@ -39,11 +39,16 @@
 .userButton .button {
     height: 6vh;
     width: 90%;
-    background-color: var(--orange);
+    background-color: var(--blue);
+    color: white;
     border-radius: 2em;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.userButton .button:hover {
+    background-color: var(--darkblue);
 }
 
 /* Laptop Query */
