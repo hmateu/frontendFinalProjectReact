@@ -5,83 +5,63 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { addMonths } from 'date-fns';
 import { useNavigate } from "react-router-dom";
+import { createTicket } from "../../../utils/apiCalls/ticketsCalls";
+import { useSelector } from "react-redux";
+import { userData } from "../../Users/userSlice";
 
 export const NewTickets = () => {
 
     const navigate = useNavigate();
+    const dataRedux = useSelector(userData);
+    const token = dataRedux?.credentials?.token;
     const today = new Date();
-    const [selectedDate, setSelectedDate] = useState(null);
+    const [selectedDate, setSelectedDate] = useState(today);
     const maxDate = addMonths(today, 3);
     const datepickerRef = useRef(null);
     let [generalValue, setGeneralValue] = useState(0);
     let [juniorValue, setJuniorValue] = useState(0);
     let [reduceValue, setReduceValue] = useState(0);
 
-    const handleDateChange = (date) => {
-        setSelectedDate(date);
-    };
+    const handleDateChange = (date) => setSelectedDate(date);
 
-    const openCalendar = () => {
-        datepickerRef.current.setOpen(true);
-    };
+    const openCalendar = () => datepickerRef.current.setOpen(true);
 
     useEffect(() => {
         openCalendar();
     }, []);
 
-    const incrementGeneralTicket = () => {
-        generalValue === 5
-            ? (
-                generalValue
-            )
-            : (
-                setGeneralValue(generalValue += 1)
-            )
-    }
-    const decrementGeneralTicket = () => {
-        generalValue === 0
-            ? (
-                generalValue
-            )
-            : (
-                setGeneralValue(generalValue -= 1)
-            )
-    }
-    const incrementJuniorTicket = () => {
-        juniorValue === 5
-        ? (
-            juniorValue
-        )
-        : (
-            setJuniorValue(juniorValue += 1)
-        )
-    }
-    const decrementJuniorTicket = () => {
-        juniorValue === 0
-            ? (
-                juniorValue
-            )
-            : (
-                setJuniorValue(juniorValue -= 1)
-            )
-    }
-    const incrementReduceTicket = () => {
-        reduceValue === 5
-            ? (
-                reduceValue
-            )
-            : (
-                setReduceValue(reduceValue += 1)
-            )
-    }
-    const decrementReduceTicket = () => {
-        reduceValue === 0
-            ? (
-                reduceValue
-            )
-            : (
-                setReduceValue(reduceValue -= 1)
-            )
+    const incrementGeneralTicket = () => generalValue === 5 ? generalValue : setGeneralValue(generalValue += 1);
+    const decrementGeneralTicket = () => generalValue === 0 ? generalValue : setGeneralValue(generalValue -= 1);
+
+    const incrementJuniorTicket = () => juniorValue === 5 ? juniorValue : setJuniorValue(juniorValue += 1);
+    const decrementJuniorTicket = () => juniorValue === 0 ? juniorValue : setJuniorValue(juniorValue -= 1);
+
+    const incrementReduceTicket = () => reduceValue === 5 ? reduceValue : setReduceValue(reduceValue += 1);
+    const decrementReduceTicket = () => reduceValue === 0 ? reduceValue : setReduceValue(reduceValue -= 1);
+
+    const purchasingProcess = () => {
+        if (generalValue > 0) {
+            for (let i = 0; i < generalValue; i++) {
+                createTicket(token, selectedDate, 1)
+                    .catch(error => console.log(error))
+            }
+        }
+
+        if (juniorValue > 0) {
+            for (let i = 0; i < juniorValue; i++) {
+                createTicket(token, selectedDate, 2)
+                    .catch(error => console.log(error))
+            }
+        }
+
+        if (reduceValue > 0) {
+            for (let i = 0; i < reduceValue; i++) {
+                createTicket(token, selectedDate, 3)
+                    .catch(error => console.log(error))
+            }
+        }
+
+        navigate('/my-tickets');
     }
 
     return (
@@ -138,13 +118,7 @@ export const NewTickets = () => {
                     />
                 </div>
                 <div className="confirmationButton">
-                    <div className="confirmButton" onClick={() => {
-                        console.log(`Entradas General ${generalValue}`)
-                        console.log(`Entradas Junior ${juniorValue}`)
-                        console.log(`Entradas Reducida ${reduceValue}`)
-                        console.log(`Fecha ${selectedDate}`)
-                        navigate('/my-tickets')
-                        }}>
+                    <div className="confirmButton" onClick={() => purchasingProcess()}>
                         Comprar
                     </div>
                 </div>

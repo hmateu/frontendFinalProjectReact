@@ -63,23 +63,6 @@ export const Login = () => {
     useEffect(() => {
         if (token) {
             navigate('/');
-            myProfile(token)
-                .then((myData) => {
-                    dispatch(
-                        login(
-                            {
-                                id: myData.id
-                            }
-                        )
-                    );
-                })
-                .catch((error) => {
-                    console.log(
-                        "success:", false,
-                        "message", "Catch de la función myProfile en Login.jsx",
-                        "error", error.message
-                    )
-                });
             myRoles(token)
                 .then((result) => {
                     dispatch(
