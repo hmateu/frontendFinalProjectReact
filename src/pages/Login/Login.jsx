@@ -3,7 +3,7 @@ import { InputField } from "../../common/inputField/inputField";
 import { FormBtn } from "../../common/FormBtn/FormBtn";
 import { useNavigate } from "react-router-dom";
 import { checkForm } from "../../utils/validateForm";
-import { loginMe, myRoles } from "../../utils/apiCalls/authCalls";
+import { loginMe, myProfile, myRoles } from "../../utils/apiCalls/authCalls";
 import { useDispatch } from "react-redux";
 import { login } from "../Users/userSlice";
 
@@ -63,10 +63,25 @@ export const Login = () => {
     useEffect(() => {
         if (token) {
             navigate('/');
+            myProfile(token)
+                .then((myData) => {
+                    dispatch(
+                        login(
+                            {
+                                id: myData.id
+                            }
+                        )
+                    );
+                })
+                .catch((error) => {
+                    console.log(
+                        "success:", false,
+                        "message", "Catch de la función myProfile en Login.jsx",
+                        "error", error.message
+                    )
+                });
             myRoles(token)
                 .then((result) => {
-                    // console.log(`Lo que llega a Login.jsx de myRoles() -> ${result}`);
-                    // Guardar los roles en Redux
                     dispatch(
                         login(
                             {
