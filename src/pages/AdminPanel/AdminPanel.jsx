@@ -32,6 +32,11 @@ export const AdminPanel = () => {
                         button={'Ver todas'}
                         pathClick={'/tickets'}
                     />
+                    <AdminCard
+                        name={'Entradas'}
+                        button={'Mis entradas'}
+                        pathClick={'/my-tickets'}
+                    />
                 </div>
             </div>
         </div>

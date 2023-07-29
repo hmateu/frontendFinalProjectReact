@@ -15,6 +15,22 @@
     margin-bottom: 2em;
 }
 
+.newTicket{
+    background-color: var(--blue);
+    color: white;
+    height: 2em;
+    width: 70vw;
+    border-radius: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.newTicket:hover{
+    background-color: var(--darkblue);
+}
+
 .ticketsSection {
     display: flex;
     flex-direction: column;
@@ -27,6 +43,12 @@
 
 /* Laptop Query */
 @media screen and (min-width:1200px) {
+    .newTicket{
+        height: 8vh;
+        width: 20vw;
+        font-size: 1.3em;
+    }
+
     .ticketsSection {
         display: grid;
         grid-template-columns: repeat(4, 1fr);

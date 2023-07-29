@@ -4,8 +4,10 @@ import { TicketCard } from "../../common/TicketCard/TicketCard";
 import { useSelector } from "react-redux";
 import { userData } from "../Users/userSlice";
 import { bringAllTickets, deleteOneTicketById } from "../../utils/apiCalls/ticketsCalls";
+import { useNavigate } from "react-router-dom";
 
 export const Tickets = () => {
+    const navigate = useNavigate();
     const [tickets, setTickets] = useState([]);
     const dataRedux = useSelector(userData);
     const token = dataRedux?.credentials?.token;
@@ -38,6 +40,7 @@ export const Tickets = () => {
                 <div className="sectionTitle">
                     Entradas SueñoAventura
                 </div>
+                <div className="newTicket" onClick={()=>navigate('/new-tickets')}>Nueva Entrada</div>
             </div>
             <div className="bottomSection">
                 {
