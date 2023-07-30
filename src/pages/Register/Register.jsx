@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { InputField } from "../../common/inputField/inputField";
+import { InputField } from "../../common/inputField/InputField";
 import { FormBtn } from "../../common/FormBtn/FormBtn";
 import { useNavigate } from "react-router-dom";
 import { checkForm } from "../../utils/validateForm";
