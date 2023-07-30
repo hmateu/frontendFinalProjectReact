@@ -36,6 +36,7 @@ export const Attractions = () => {
                                             <div key={attraction.id}>
                                                 <AttractionCard
                                                     id={attraction.id}
+                                                    picture={<img src={attraction.picture} alt={attraction.name} />}
                                                     name={`${attraction.name}`}
                                                     minHeight={`Altura mínima: ${attraction.min_height} cm`}
                                                     maxHeight={`Altura máxima: ${attraction.max_height} cm`}

@@ -19,7 +19,7 @@ export const AdminAttractions = () => {
                 })
                 .catch(error => console.log(error))
         }
-    },[token, attractions]);
+    }, [token, attractions]);
 
     return (
         <div className="attractionsStyle">
@@ -43,6 +43,7 @@ export const AdminAttractions = () => {
                                             <div key={attraction[0].attraction.id}>
                                                 <AdminAttraction
                                                     id={attraction[0].attraction.id}
+                                                    picture={<img src={attraction[0].attraction.picture} alt={attraction.name} />}
                                                     name={attraction[0].attraction.name}
                                                     employee1={attraction[0].user.name}
                                                     employee2={attraction[1].user.name}

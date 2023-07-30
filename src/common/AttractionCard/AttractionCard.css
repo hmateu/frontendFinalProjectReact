@@ -14,6 +14,12 @@
     border-radius: .7em .7em 0 0;
 }
 
+.attractionPicture img {
+    height: 100%;
+    width: 100%;
+    border-radius: .7em .7em 0 0;
+}
+
 .attractionInformation {
     height: 20vh;
     width: 50vw;
