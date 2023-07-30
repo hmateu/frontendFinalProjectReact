@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -60,8 +60,6 @@ export const Navbar = () => {
                             </>
                         )
                 }
-
-
             </ul>
             <div className={`hamburgerContainer ${isMobileMenuOpen ? 'opened' : ''}`}>
                 <button onClick={toggleMobileMenu}>
@@ -104,8 +102,6 @@ export const Navbar = () => {
                                 </>
                             )
                     }
-
-
                 </ul>
             </div>
         </div>

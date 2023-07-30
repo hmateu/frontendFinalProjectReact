@@ -44,7 +44,6 @@
     align-items: center;
 }
 
-
 /* Laptop Query */
 @media screen and (min-width:1200px) {
     .topSection .profileTitle {

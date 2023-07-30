@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import './AdminAttractions.css';
 import { useSelector } from "react-redux";
 import { userData } from "../Users/userSlice";
 import { bringAllAttractionsByAdmin } from "../../utils/apiCalls/attractionsCalls";

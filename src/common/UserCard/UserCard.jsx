@@ -1,9 +1,7 @@
 import React from "react";
 import './UserCard.css';
-import { useNavigate } from 'react-router-dom';
 
 export const UserCard = ({ id, dni, name, surname, age, cp, mobile, email, deteleFunction }) => {
-    const navigate = useNavigate();
     return (
         <div className="userCardStyle">
             <div className="userInformation">

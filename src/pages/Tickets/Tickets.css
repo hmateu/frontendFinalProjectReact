@@ -40,7 +40,6 @@
     margin-bottom: 3em;
 }
 
-
 /* Laptop Query */
 @media screen and (min-width:1200px) {
     .newTicket{

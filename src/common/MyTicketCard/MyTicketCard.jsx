@@ -1,9 +1,7 @@
 import React from "react";
 import './MyTicketCard.css';
-import { useNavigate } from 'react-router-dom';
 
 export const MyTicketCard = ({ id, date, ticketType, price, validated }) => {
-    const navigate = useNavigate();
     return (
         <div className="myTicketCardStyle">
             <div className="myTicketInformation">
