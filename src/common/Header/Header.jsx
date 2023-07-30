@@ -9,7 +9,7 @@ export const Header = () => {
     return (
         <div className="headerStyle">
             <div className="leftHeader" onClick={() => { navigate("/") }}>
-                <img src="src/img/logo.png" alt="logo" />
+                <img src="../../img/logo.png" alt="logo" />
             </div>
             <div className="rightHeader">
                 <Navbar />
