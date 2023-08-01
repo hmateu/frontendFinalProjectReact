@@ -39,30 +39,38 @@ export const NewTickets = () => {
     const incrementReduceTicket = () => reduceValue === 5 ? reduceValue : setReduceValue(reduceValue += 1);
     const decrementReduceTicket = () => reduceValue === 0 ? reduceValue : setReduceValue(reduceValue -= 1);
 
-    const purchasingProcess = () => {
-        if (generalValue > 0) {
-            for (let i = 0; i < generalValue; i++) {
-                createTicket(token, selectedDate, 1)
-                    .catch(error => console.log(error))
+    const purchasingProcess = async () => {
+        try {
+            const generalTickets = [];
+            const juniorTickets = [];
+            const reduceTickets = [];
+    
+            if (generalValue > 0) {
+                for (let i = 0; i < generalValue; i++) {
+                    generalTickets.push(createTicket(token, selectedDate, 1));
+                }
             }
-        }
-
-        if (juniorValue > 0) {
-            for (let i = 0; i < juniorValue; i++) {
-                createTicket(token, selectedDate, 2)
-                    .catch(error => console.log(error))
+    
+            if (juniorValue > 0) {
+                for (let i = 0; i < juniorValue; i++) {
+                    juniorTickets.push(createTicket(token, selectedDate, 2));
+                }
             }
-        }
-
-        if (reduceValue > 0) {
-            for (let i = 0; i < reduceValue; i++) {
-                createTicket(token, selectedDate, 3)
-                    .catch(error => console.log(error))
+    
+            if (reduceValue > 0) {
+                for (let i = 0; i < reduceValue; i++) {
+                    reduceTickets.push(createTicket(token, selectedDate, 3));
+                }
             }
+    
+            await Promise.all([...generalTickets, ...juniorTickets, ...reduceTickets]);
+    
+            navigate('/my-tickets');
+        } catch (error) {
+            console.error('Error en el proceso de compra:', error);
         }
-
-        navigate('/my-tickets');
-    }
+    };
+    
 
     const [validation, setValidation] = useState(false);
 
