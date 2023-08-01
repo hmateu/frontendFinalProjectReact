@@ -18,7 +18,6 @@ export const bringAllAttractionsByAdmin = async (token) => {
                 'Authorization': `Bearer ${token}`
             }
         };
-
         let res = await axios.get(`${URL}/attractions-admin`, config);
         return JSON.stringify(res.data.data);
 

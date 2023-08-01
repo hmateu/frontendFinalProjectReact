@@ -8,9 +8,7 @@ export const bringAllUsers = async (token) => {
                 'Authorization': `Bearer ${token}`
             }
         };
-
         let res = await axios.get(`${URL}/users`, config);
-
         return JSON.stringify(res.data.data);
 
     } catch (error) {
@@ -25,7 +23,6 @@ export const deleteOneUserById = async (id, token) => {
                 'Authorization': `Bearer ${token}`
             }
         };
-
         let res = await axios.delete(`${URL}/user/${id}`, config);
 
     } catch (error) {

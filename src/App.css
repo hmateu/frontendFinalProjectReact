@@ -14,11 +14,7 @@ body:has(.hamburgerContainer.opened) {
   --blue: #0000ff;
   --lightblue: #9ed2ec;
   --darkblue: #00008b;
-  --yellow: #fff000;
-  --green: #00ff00;
   --red: #ff0000;
-  --lightred: #f38888;
-  --orange: #ffa500;
 }
 
 /* Generic page style */
@@ -91,7 +87,6 @@ body:has(.hamburgerContainer.opened) {
   .formStyle {
     box-shadow: .375em .375em .375em -.313em,
       -.375em -.375em .375em -.313em;
-
     row-gap: 2em;
     padding: 4em 2em;
     margin-top: 2em;

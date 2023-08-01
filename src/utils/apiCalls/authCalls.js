@@ -4,12 +4,10 @@ const URL = 'https://backend-final-project-82vls8phy-hmateu.vercel.app/api/api';
 export const registerMe = async (credentials) => {
     try {
         let res = await axios.post(`${URL}/auth/register`, credentials);
-        // console.log(`Lo que devuelve AXIOS de regiser -> ${res.data.data}`, JSON.stringify(res.data.data))
         return JSON.stringify(res.data.data);
 
     } catch (error) {
         console.error('Error en la llamada a registerMe:', error);
-        console.log(credentials);
     }
 }
 
@@ -30,11 +28,7 @@ export const myProfile = async (token) => {
                 'Authorization': `Bearer ${token}`
             }
         };
-
         let res = await axios.get(`${URL}/auth/profile`, config);
-
-        // console.log(`Los datos del perfil son los siguientes ->`, res.data.data);
-
         return res.data.data;
 
     } catch (error) {
@@ -49,14 +43,9 @@ export const myRoles = async (token) => {
                 'Authorization': `Bearer ${token}`
             }
         };
-
         let res = await axios.get(`${URL}/auth/profile`, config);
         const roleIds = res.data.data.role.map((role) => role.id);
         const userId = roleIds[roleIds.length - 1];
-
-        // console.log(`Los roles del perfil son los siguientes ->`, roleIds);
-        // console.log(`Me quedo con el último rol. Si tiene varios será el de cliente ->`, userId);
-
         return userId;
 
     } catch (error) {
@@ -71,9 +60,7 @@ export const updateProfile = async (data, token) => {
                 'Authorization': `Bearer ${token}`
             }
         };
-
         let res = await axios.put(`${URL}/auth/profile-update`, data, config);
-
         return res.data.data;
 
     } catch (error) {

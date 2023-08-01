@@ -8,9 +8,7 @@ export const bringAllTickets = async (token) => {
                 'Authorization': `Bearer ${token}`
             }
         };
-
         let res = await axios.get(`${URL}/tickets`, config);
-
         return JSON.stringify(res.data.data);
 
     } catch (error) {
@@ -25,9 +23,7 @@ export const bringMyTickets = async (token) => {
                 'Authorization': `Bearer ${token}`
             }
         };
-
         let res = await axios.get(`${URL}/my-tickets`, config);
-
         return JSON.stringify(res.data.data);
 
     } catch (error) {
@@ -42,14 +38,11 @@ export const createTicket = async (token, selectedDate, tycketType) => {
                 'Authorization': `Bearer ${token}`
             }
         };
-
         const dateObject = new Date(selectedDate);
-
         const bodyData = {
             date: dateObject.toISOString().split('T')[0],
             ticket_type: tycketType
         }
-
         await axios.post(`${URL}/new-ticket`, bodyData, config);
 
     } catch (error) {
@@ -64,7 +57,6 @@ export const deleteOneTicketById = async (id, token) => {
                 'Authorization': `Bearer ${token}`
             }
         };
-
         let res = await axios.delete(`${URL}/ticket/${id}`, config);
 
     } catch (error) {

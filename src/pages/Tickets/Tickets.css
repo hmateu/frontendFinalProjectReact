@@ -1,4 +1,4 @@
-.ticketsStyle{
+.ticketsStyle {
     min-height: 80vh;
     display: flex;
     flex-direction: column;
@@ -15,7 +15,7 @@
     margin-bottom: 2em;
 }
 
-.newTicket{
+.newTicket {
     background-color: var(--blue);
     color: white;
     height: 2em;
@@ -27,7 +27,7 @@
     cursor: pointer;
 }
 
-.newTicket:hover{
+.newTicket:hover {
     background-color: var(--darkblue);
 }
 
@@ -42,7 +42,7 @@
 
 /* Laptop Query */
 @media screen and (min-width:1200px) {
-    .newTicket{
+    .newTicket {
         height: 8vh;
         width: 20vw;
         font-size: 1.3em;
