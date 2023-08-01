@@ -43,6 +43,18 @@ export const createTicket = async (token, selectedDate, tycketType) => {
             date: dateObject.toISOString().split('T')[0],
             ticket_type: tycketType
         }
+        
+        // Enable Axios Debugging
+        axios.interceptors.request.use((request) => {
+            console.log('Request:', request);
+            return request;
+          });
+          
+          axios.interceptors.response.use((response) => {
+            console.log('Response:', response);
+            return response;
+          });
+          
         await axios.post(`${URL}/new-ticket`, bodyData, config);
 
     } catch (error) {

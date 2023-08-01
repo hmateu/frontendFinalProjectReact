@@ -44,33 +44,33 @@ export const NewTickets = () => {
             const generalTickets = [];
             const juniorTickets = [];
             const reduceTickets = [];
-    
+
             if (generalValue > 0) {
                 for (let i = 0; i < generalValue; i++) {
                     generalTickets.push(createTicket(token, selectedDate, 1));
                 }
             }
-    
+
             if (juniorValue > 0) {
                 for (let i = 0; i < juniorValue; i++) {
                     juniorTickets.push(createTicket(token, selectedDate, 2));
                 }
             }
-    
+
             if (reduceValue > 0) {
                 for (let i = 0; i < reduceValue; i++) {
                     reduceTickets.push(createTicket(token, selectedDate, 3));
                 }
             }
-    
+
             await Promise.all([...generalTickets, ...juniorTickets, ...reduceTickets]);
-    
+
             navigate('/my-tickets');
         } catch (error) {
             console.error('Error en el proceso de compra:', error);
         }
     };
-    
+
 
     const [validation, setValidation] = useState(false);
 
