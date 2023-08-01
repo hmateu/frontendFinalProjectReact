@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './MyTickets.css';
+import './MyTickets.ticketscss';
 import { MyTicketCard } from "../../../common/MyTicketCard/MyTicketCard";
 import { useSelector } from "react-redux";
 import { userData } from "../../Users/userSlice";
@@ -12,7 +12,7 @@ export const MyTickets = () => {
     const dataRedux = useSelector(userData);
     const token = dataRedux?.credentials?.token;
 
-    if (tickets.length === 0) {
+    if (tickets?.length === 0) {
         bringMyTickets(token)
             .then((tickets) => {
                 setTickets(tickets);
@@ -30,7 +30,7 @@ export const MyTickets = () => {
             </div>
             <div className="bottomSection">
                 {
-                    tickets.length > 0
+                    tickets?.length > 0
                         ? (
                             <div className="myTicketsSection">
                                 {

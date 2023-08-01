@@ -12,7 +12,7 @@ export const Tickets = () => {
     const dataRedux = useSelector(userData);
     const token = dataRedux?.credentials?.token;
 
-    if (tickets.length === 0) {
+    if (tickets?.length === 0) {
         bringAllTickets(token)
             .then((tickets) => {
                 setTickets(tickets);
@@ -43,7 +43,7 @@ export const Tickets = () => {
             </div>
             <div className="bottomSection">
                 {
-                    tickets.length > 0
+                    tickets?.length > 0
                         ? (
                             <div className="ticketsSection">
                                 {
