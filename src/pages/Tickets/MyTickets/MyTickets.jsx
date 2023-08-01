@@ -15,8 +15,7 @@ export const MyTickets = () => {
     if (tickets.length === 0) {
         bringMyTickets(token)
             .then((tickets) => {
-                let ticketsData = JSON.parse(tickets);
-                setTickets(ticketsData);
+                setTickets(tickets);
             })
             .catch(error => console.log(error))
     }
