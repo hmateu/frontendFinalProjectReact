@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './MyTickets.ticketscss';
+import './MyTickets.css';
 import { MyTicketCard } from "../../../common/MyTicketCard/MyTicketCard";
 import { useSelector } from "react-redux";
 import { userData } from "../../Users/userSlice";
