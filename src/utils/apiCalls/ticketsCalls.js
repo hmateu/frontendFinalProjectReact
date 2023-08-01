@@ -9,7 +9,7 @@ export const bringAllTickets = async (token) => {
             }
         };
         let res = await axios.get(`${URL}/tickets`, config);
-        return JSON.stringify(res.data.data);
+        return res.data.data;
 
     } catch (error) {
         console.error('Error en la llamada a bringAllTickets:', error);
@@ -24,7 +24,7 @@ export const bringMyTickets = async (token) => {
             }
         };
         let res = await axios.get(`${URL}/my-tickets`, config);
-        return JSON.stringify(res.data.data);
+        return res.data.data;
 
     } catch (error) {
         console.error('Error en la llamada a bringMyTickets:', error);
@@ -43,7 +43,7 @@ export const createTicket = async (token, selectedDate, tycketType) => {
             date: dateObject.toISOString().split('T')[0],
             ticket_type: tycketType
         }
-        
+
         // Enable Axios Debugging
         axios.interceptors.request.use((request) => {
             console.log('Request:', request);
