@@ -55,7 +55,7 @@ export const createTicket = async (token, selectedDate, tycketType) => {
             return response;
           });
           
-        const res = await axios.post(`${URL}/new-ticket`, bodyData, config);
+        const res = await axios.post(`https://backend-final-project-82vls8phy-hmateu.vercel.app/api/api/new-ticket`, bodyData, config);
 
         console.log('Ticket creation response:', res.data);
 
