@@ -55,9 +55,9 @@ export const createTicket = async (token, selectedDate, tycketType) => {
             return response;
           });
           
-        await axios.post(`${URL}/new-ticket`, bodyData, config);
+        const res = await axios.post(`${URL}/new-ticket`, bodyData, config);
 
-        console.log('Ticket creation response:', response.data);
+        console.log('Ticket creation response:', res.data);
 
     } catch (error) {
         console.error('Error en la llamada a createTicket:', error);
